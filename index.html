@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="uk">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Зелені стежки Карпат — еко-маршрути Карпатами</title>
+<meta content="Тихі еко-маршрути Карпатами з місцевими гідами: чесна вартість і бережливе ставлення до природи." name="description"/>
+<link href="assets/images/logo_w.svg" rel="icon" type="image/svg+xml"/>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="js/tailwind.theme.js"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="css/style.css" rel="stylesheet"/>
+<script defer="" src="js/routes-data.js"></script><script defer="" src="js/site.js"></script><meta content="#1E3F20" name="theme-color"/></head>
+<body class="bg-background font-main text-base text-neutral-dark antialiased">
+<a class="absolute -top-12 left-0 z-[200] bg-accent-hover px-4 py-2 text-white transition-[top] focus:top-0" href="#main-content" title="Перейти до основного вмісту">Перейти до основного вмісту</a>
+<header class="sticky top-0 z-50 bg-white shadow-header">
+<div class="relative mx-auto flex h-16 max-w-container items-center justify-between gap-4 px-5 md:grid md:grid-cols-header">
+<a class="flex items-center gap-2.5 text-base font-semibold text-primary transition-opacity hover:opacity-80 md:justify-self-start md:text-lg" href="index.html#hero" title="Зелені стежки Карпат">
+<img alt="" class="h-9 w-auto md:h-8" src="assets/images/logo_w.svg"/>
+<span class="leading-tight">Зелені стежки Карпат</span>
+</a>
+<!-- Бургер без JS: прихований чекбокс (peer) + два <label> -->
+<input class="peer sr-only" id="nav-toggle" type="checkbox"/>
+<label class="grid size-11 cursor-pointer place-items-center rounded-lg bg-background text-primary peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent peer-checked:hidden md:hidden" for="nav-toggle">
+<span class="sr-only">Відкрити меню</span>
+<svg aria-hidden="true" class="" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
+</label>
+<label class="hidden size-11 cursor-pointer place-items-center rounded-lg bg-background text-primary peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent peer-checked:grid md:peer-checked:hidden" for="nav-toggle">
+<span class="sr-only">Закрити меню</span>
+<svg aria-hidden="true" class="" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M6 6l12 12M18 6 6 18"></path></svg>
+</label>
+<nav aria-label="Головна навігація" class="absolute inset-x-0 top-full hidden max-h-[calc(100vh-4rem)] overflow-y-auto bg-white px-5 pb-8 pt-4 shadow-header peer-checked:block md:static md:block md:max-h-none md:overflow-visible md:bg-transparent md:p-0 md:shadow-none" id="main-menu">
+<p class="mb-2 text-2xs uppercase tracking-widest text-secondary md:hidden">Меню</p>
+<ul class="flex flex-col gap-1 md:flex-row md:gap-5 lg:gap-8">
+<li><a aria-current="page" class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="index.html#hero" title="Головна">Головна</a></li>
+<li><a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="routes.html" title="Маршрути">Маршрути</a></li>
+<li><a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="about.html" title="Про нас">Про нас</a></li>
+<li><a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="#contacts" title="Контакти">Контакти</a></li>
+</ul>
+<div class="mt-4 flex flex-col gap-4 md:hidden">
+<a class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-7 py-3 text-label bg-primary text-white hover:bg-primary-hover w-full" href="booking.html" title="Забронювати">Забронювати</a>
+<div class="flex flex-col gap-3 border-t border-line pt-4 text-sm">
+<p>Еко-туризм та піші маршрути Карпатами</p>
+<a class="transition-colors hover:text-accent-hover" href="tel:+380971234567" title="+380 (97) 123-45-67">+380 (97) 123-45-67</a>
+<a class="transition-colors hover:text-accent-hover" href="mailto:info@carpathiantrails.ua" title="info@carpathiantrails.ua">info@carpathiantrails.ua</a>
+</div>
+</div>
+</nav>
+<a class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-7 py-3 text-label bg-primary text-white hover:bg-primary-hover hidden md:inline-flex md:justify-self-end md:px-5 md:py-2" href="booking.html" title="Забронювати">Забронювати</a>
+</div>
+</header>
+<main id="main-content">
+<section aria-labelledby="hero-title" class="flex min-h-[480px] scroll-mt-20 bg-hero bg-cover bg-center bg-no-repeat md:min-h-[672px]" id="hero">
+<div class="mx-auto flex w-full max-w-container flex-col items-start justify-between gap-8 px-5 py-8">
+<div class="max-w-hero">
+<h1 class="mb-2 font-heading text-hero font-semibold text-neutral-dark" id="hero-title">Справжні Карпати без натовпу та реву джипів</h1>
+<p class="max-w-text text-lg font-semibold">
+            Зберіть свій тихий еко-маршрут за кілька кліків.
+            Показуємо чесну вартість від місцевих гідів і
+            гарантуємо бережливе ставлення до природи
+          </p>
+</div>
+<a class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-7 py-3 text-label bg-accent-hover text-white hover:bg-primary w-full md:w-auto" href="booking.html" title="Скласти маршрут">Скласти маршрут</a>
+</div>
+</section>
+<section aria-labelledby="advantages-title" class="scroll-mt-20 bg-white px-5 py-10 md:py-16" id="about">
+<div class="mx-auto max-w-container">
+<h2 class="mb-8 text-center font-heading font-semibold text-primary text-h2" id="advantages-title">Переваги</h2>
+<ul class="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-3">
+<li class="flex flex-col items-center gap-4 text-center">
+<img alt="" class="size-45" src="assets/icons/icon-routes.svg"/>
+<span class="font-semibold">Перевірені маршрути</span>
+</li>
+<li class="flex flex-col items-center gap-4 text-center">
+<img alt="" class="size-45" src="assets/icons/icon-eco.svg"/>
+<span class="font-semibold">Екологічність туру</span>
+</li>
+<li class="flex flex-col items-center gap-4 text-center">
+<img alt="" class="size-45" src="assets/icons/icon-price.svg"/>
+<span class="font-semibold">Прозора ціна</span>
+</li>
+</ul>
+</div>
+</section>
+<section aria-labelledby="routes-title" class="scroll-mt-20 bg-white px-5 py-10 md:py-16" id="routes">
+<div class="mx-auto max-w-container">
+<h2 class="mb-8 text-center font-heading font-semibold text-primary text-h2" id="routes-title">Популярні маршрути</h2>
+<div class="mx-auto grid max-w-narrow grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+<article class="flex flex-col gap-2 rounded-2xl border border-neutral-dark bg-white p-3 shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+<img alt="Вид на обсерваторію гори Піп Іван" class="h-card-img w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/pip-ivan.jpg"/>
+<div class="flex grow flex-col gap-2">
+<h3 class="font-heading text-lg font-semibold text-neutral-dark">Похід на Піп Іван</h3>
+<p class="text-sm leading-normal">Триденний маршрут Чорногірським хребтом із відвіданням обсерваторії</p>
+<p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-secondary bg-tint text-primary">Складний</p>
+<div class="mt-auto flex items-center justify-between gap-2 pt-2">
+<p class="font-bold">2400 грн</p>
+<a class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-5 py-2 text-xs bg-accent-hover text-white hover:bg-primary" href="route_pip_ivan.html" title="Детальніше про похід на Піп Іван">Детальніше<span class="sr-only"> про похід на Піп Іван</span></a>
+</div>
+</div>
+</article>
+<article class="flex flex-col gap-2 rounded-2xl border border-neutral-dark bg-white p-3 shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+<img alt="Озеро Синевир серед лісу" class="h-card-img w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/synevyr.jpg"/>
+<div class="flex grow flex-col gap-2">
+<h3 class="font-heading text-lg font-semibold text-neutral-dark">Озеро Синевир</h3>
+<p class="text-sm leading-normal">Одноденна комфортна екскурсія до найбільшого гірського озера України</p>
+<p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-secondary bg-tint text-primary">Легкий</p>
+<div class="mt-auto flex items-center justify-between gap-2 pt-2">
+<p class="font-bold">1600 грн</p>
+<a class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-5 py-2 text-xs bg-accent-hover text-white hover:bg-primary" href="route_synevyr.html" title="Детальніше про екскурсію на Озеро Синевир">Детальніше<span class="sr-only"> про екскурсію на Озеро Синевир</span></a>
+</div>
+</div>
+</article>
+<article class="flex flex-col gap-2 rounded-2xl border border-neutral-dark bg-white p-3 shadow-card transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+<img alt="Скелі Довбуша серед осіннього лісу" class="h-card-img w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/dovbush-rocks.jpg"/>
+<div class="flex grow flex-col gap-2">
+<h3 class="font-heading text-lg font-semibold text-neutral-dark">Скелі Довбуша</h3>
+<p class="text-sm leading-normal">Маршрут легендарними стежками через скелясті масиви та ялицевий ліс</p>
+<p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-secondary bg-tint text-primary">Середній</p>
+<div class="mt-auto flex items-center justify-between gap-2 pt-2">
+<p class="font-bold">1300 грн</p>
+<a class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-5 py-2 text-xs bg-accent-hover text-white hover:bg-primary" href="route_dovbush_rocks.html" title="Детальніше про маршрут Скелі Довбуша">Детальніше<span class="sr-only"> про маршрут Скелі Довбуша</span></a>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+<!-- ЛР №7: адаптивне відео про Карпати (YouTube Embed) -->
+<section aria-labelledby="video-title" class="scroll-mt-20 bg-background px-5 py-10 md:py-16" id="video">
+<div class="mx-auto max-w-container">
+<div class="mx-auto mb-8 max-w-text text-center">
+<h2 class="mb-3 font-heading text-h2 font-semibold text-primary" id="video-title">Відчуйте атмосферу Карпат</h2>
+<p class="text-sm text-secondary">Відкрийте для себе Карпати у відео та оберіть маршрут для своєї наступної мандрівки.</p>
+</div>
+<figure class="mx-auto max-w-4xl">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" class="media-frame media-frame--video" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/5-oLFPq52k0" title="Відео про атмосферу Карпат — Зелені стежки Карпат"></iframe>
+<figcaption class="mt-3 text-center text-xs text-secondary">
+            Якщо відео не відображається, <a class="font-semibold text-primary underline decoration-accent underline-offset-4 transition-colors hover:text-accent-hover" href="https://youtu.be/5-oLFPq52k0" rel="noopener noreferrer" target="_blank" title="перегляньте його на YouTube">перегляньте його на YouTube</a>.
+          </figcaption>
+</figure>
+</div>
+</section>
+<section aria-labelledby="faq-title" class="scroll-mt-20 bg-white px-5 py-10 md:py-16" id="faq">
+<div class="mx-auto max-w-container">
+<h2 class="mb-6 text-center font-heading text-h2 font-semibold text-primary" id="faq-title">Часті запитання</h2>
+<div class="mx-auto max-w-3xl space-y-3">
+<details class="group rounded-xl border border-line bg-background px-5 py-4">
+<summary class="cursor-pointer text-sm font-semibold text-primary focus-visible:outline-accent">Чи можна подивитися маршрут перед оформленням?</summary>
+<p class="mt-3 text-sm text-secondary">Так. У каталозі можна ознайомитися зі складністю, тривалістю та програмою кожного маршруту.</p>
+</details>
+<details class="group rounded-xl border border-line bg-background px-5 py-4">
+<summary class="cursor-pointer text-sm font-semibold text-primary focus-visible:outline-accent">Що таке Eco-Impact Score?</summary>
+<p class="mt-3 text-sm text-secondary">У прототипі це орієнтовний показник екологічності походу. Він не замінює незалежну екологічну сертифікацію.</p>
+</details>
+<details class="group rounded-xl border border-line bg-background px-5 py-4">
+<summary class="cursor-pointer text-sm font-semibold text-primary focus-visible:outline-accent">Чи підтверджується бронювання одразу?</summary>
+<p class="mt-3 text-sm text-secondary">Ні. Сайт є навчальним прототипом: калькулятор показує приблизну ціну, але не приймає оплату та не надсилає реальні заявки.</p>
+</details>
+</div>
+</div>
+</section><section aria-labelledby="cta-title" class="on-dark bg-secondary px-5 py-10 md:py-16 text-center text-white">
+<div class="mx-auto flex max-w-container flex-col items-center gap-4">
+<h2 class="font-heading text-h2 font-semibold text-white" id="cta-title">Готові до пригод у горах?</h2>
+<p class="max-w-cta">Оберіть свій ідеальний маршрут або зверніться до нас за персональною консультацією</p>
+<a class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-7 py-3 text-label bg-accent-hover text-white hover:bg-primary w-full md:w-auto" href="routes.html" title="Обрати тур">Обрати тур</a>
+</div>
+</section>
+</main>
+<footer class="on-dark scroll-mt-20 border-t border-white/35 bg-secondary px-5 pb-4 pt-8 text-white" id="contacts">
+<div class="mx-auto max-w-container">
+<div class="mb-8 grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-footer">
+<a class="flex items-center gap-4 md:col-span-2 lg:col-span-1" href="index.html#hero" title="Еко-туризм та піші маршрути Карпатами">
+<img alt="Зелені стежки Карпат" class="h-18 w-auto" src="assets/images/logo_g.svg"/>
+<span class="max-w-40 text-sm">Еко-туризм та піші маршрути Карпатами</span>
+</a>
+<nav aria-label="Навігація підвалу">
+<ul class="flex flex-col gap-1">
+<li><a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="index.html#hero" title="Головна">Головна</a></li>
+<li><a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="routes.html" title="Маршрути">Маршрути</a></li>
+<li><a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="about.html" title="Про нас">Про нас</a></li>
+<li><a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="#contacts" title="Контакти">Контакти</a></li>
+</ul>
+</nav>
+<address class="flex flex-col gap-1 not-italic">
+<p class="font-bold">Контакти</p>
+<a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="tel:+380971234567" title="+380 (97) 123-45-67">+380 (97) 123-45-67</a>
+<a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="mailto:info@carpathiantrails.ua" title="info@carpathiantrails.ua">info@carpathiantrails.ua</a>
+</address>
+</div>
+<section aria-labelledby="map-heading" class="border-t border-white/35 py-8" id="map-region">
+<div class="mb-5 max-w-3xl">
+<h2 class="font-heading text-h2 font-semibold text-white" id="map-heading">Українські Карпати на карті</h2>
+<p class="mt-2 text-sm text-white">Карта наближена до української частини Карпат — околиць Ворохти та Чорногори, без сусідніх країн у початковому огляді. Це не адреса офісу чи точка збору.</p>
+</div>
+<iframe allowfullscreen="" class="media-frame media-frame--map" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.google.com/maps?q=48.29%2C24.57&amp;z=10&amp;output=embed" title="Інтерактивна карта Google Maps: Українські Карпати"></iframe>
+<a class="mt-4 inline-flex min-h-11 items-center rounded-full border border-white px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2" href="https://www.google.com/maps/search/?api=1&amp;query=48.29%2C24.57" rel="noopener noreferrer" target="_blank" title="Відкрити в Google Maps (нова вкладка)">Відкрити в Google Maps <span class="sr-only">(нова вкладка)</span></a>
+</section><p class="pt-2 text-center text-xs"><small>© 2026 Зелені стежки Карпат. Усі права захищені.</small></p>
+</div>
+</footer>
+</body>
+</html>

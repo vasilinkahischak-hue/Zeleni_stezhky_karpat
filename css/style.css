@@ -1,0 +1,143 @@
+/* ==========================================================================
+   ЗЕЛЕНІ СТЕЖКИ КАРПАТ — css/style.css (ЛР №6)
+   Розмітка і більшість стилів тепер у Tailwind-класах. Тут лишилося лише те,
+   що незручно або недоцільно виражати утилітами (Етап 14):
+   1. Токени кольорів для власного CSS    4. Шеврон у <details>
+   2. Фокус і prefers-reduced-motion      5. Повзунок тривалості на radio
+   3. Скролбар-плавність підключена в <html class="scroll-smooth">
+   ========================================================================== */
+
+/* 1. Токени (дзеркало theme.extend.colors у tailwind.config) */
+:root {
+  --color-primary: #1E3F20;
+  --color-secondary: #4A6B4F;
+  --color-accent: #C86432;
+  --color-accent-hover: #A94F24;
+  --color-accent-tint: #FBEDE6;
+  --color-line: #D4DAD4;
+  --color-surface: #FFFFFF;
+}
+
+/* 2. Видимий фокус для клавіатури (білий на зеленому фоні) і зменшений рух */
+:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+.on-dark :focus-visible { outline-color: var(--color-surface); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+/* 4. Програма за днями: власний шеврон замість стандартного маркера <details> */
+.program-summary { list-style: none; }
+.program-summary::-webkit-details-marker { display: none; }
+.program-summary::after {
+  content: "";
+  flex-shrink: 0;
+  width: 8px;
+  height: 8px;
+  margin: 6px 4px 0 auto;
+  border-right: 2px solid var(--color-secondary);
+  border-bottom: 2px solid var(--color-secondary);
+  transform: rotate(225deg);
+  transition: transform 0.2s ease-in-out;
+}
+.program-day:not([open]) .program-summary::after { transform: rotate(45deg); }
+
+/* 5. Повзунок тривалості на radio-кнопках (працює без JS через сусідні селектори) */
+.duration-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  font-size: 0.8125rem;
+}
+.duration-value { display: none; font-weight: 700; color: var(--color-accent-hover); }
+
+.duration-track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  --fill: 50%;
+}
+.duration-track::before {
+  content: "";
+  position: absolute;
+  left: 10%;
+  right: 10%;
+  top: 8px;
+  height: 4px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--color-accent) var(--fill), var(--color-line) var(--fill));
+}
+.duration-step {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  color: var(--color-secondary);
+}
+.duration-dot {
+  width: 20px;
+  height: 20px;
+  box-sizing: border-box;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 2px solid var(--color-line);
+  transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+.duration-step:hover .duration-dot { border-color: var(--color-accent); }
+
+#days-1:checked ~ .duration-top .duration-value--1 { display: block; }
+#days-1:checked ~ .duration-track { --fill: 0%; }
+#days-1:checked ~ .duration-track .duration-step:nth-child(-n+1) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
+#days-1:checked ~ .duration-track .duration-step:nth-child(1) { color: var(--color-accent-hover); font-weight: 700; }
+#days-1:checked ~ .duration-track .duration-step:nth-child(1) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
+#days-1:focus-visible ~ .duration-track .duration-step:nth-child(1) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+#days-2:checked ~ .duration-top .duration-value--2 { display: block; }
+#days-2:checked ~ .duration-track { --fill: 25%; }
+#days-2:checked ~ .duration-track .duration-step:nth-child(-n+2) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
+#days-2:checked ~ .duration-track .duration-step:nth-child(2) { color: var(--color-accent-hover); font-weight: 700; }
+#days-2:checked ~ .duration-track .duration-step:nth-child(2) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
+#days-2:focus-visible ~ .duration-track .duration-step:nth-child(2) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+#days-3:checked ~ .duration-top .duration-value--3 { display: block; }
+#days-3:checked ~ .duration-track { --fill: 50%; }
+#days-3:checked ~ .duration-track .duration-step:nth-child(-n+3) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
+#days-3:checked ~ .duration-track .duration-step:nth-child(3) { color: var(--color-accent-hover); font-weight: 700; }
+#days-3:checked ~ .duration-track .duration-step:nth-child(3) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
+#days-3:focus-visible ~ .duration-track .duration-step:nth-child(3) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+#days-4:checked ~ .duration-top .duration-value--4 { display: block; }
+#days-4:checked ~ .duration-track { --fill: 75%; }
+#days-4:checked ~ .duration-track .duration-step:nth-child(-n+4) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
+#days-4:checked ~ .duration-track .duration-step:nth-child(4) { color: var(--color-accent-hover); font-weight: 700; }
+#days-4:checked ~ .duration-track .duration-step:nth-child(4) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
+#days-4:focus-visible ~ .duration-track .duration-step:nth-child(4) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+#days-5:checked ~ .duration-top .duration-value--5 { display: block; }
+#days-5:checked ~ .duration-track { --fill: 100%; }
+#days-5:checked ~ .duration-track .duration-step:nth-child(-n+5) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
+#days-5:checked ~ .duration-track .duration-step:nth-child(5) { color: var(--color-accent-hover); font-weight: 700; }
+#days-5:checked ~ .duration-track .duration-step:nth-child(5) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
+#days-5:focus-visible ~ .duration-track .duration-step:nth-child(5) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+
+/* ЛР №7: єдині токени для вбудованих відео й карт (DRY). */
+:root {
+  --media-max-width: 56rem;
+  --media-radius: 0.75rem;
+  --media-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  --media-map-radius: 1rem;
+}
+.media-frame { display: block; width: 100%; border: 0; box-shadow: var(--media-shadow); }
+.media-frame--video { aspect-ratio: 16 / 9; border-radius: var(--media-radius); max-width: var(--media-max-width); margin-inline: auto; }
+.media-frame--map { aspect-ratio: 4 / 3; border-radius: var(--media-map-radius); }
+@media (min-width: 768px) { .media-frame--map { aspect-ratio: 16 / 7; } }
+/* Стриманий друк підсумку: у PDF залишається лише зміст. */
+@media print {
+  header, footer, [data-action="print"], [data-action="calendar"] { display: none !important; }
+  body { color: #182218; background: white !important; }
+  main { width: 100%; }
+}
