@@ -1,0 +1,86 @@
+/* ЛР №9 — форма зворотного зв'язку. Основна сітка та типографіка використовують
+   уже зібрані Tailwind-утиліти (css/tailwind-built.css). Цей файл містить тільки
+   специфічні стани полів, оформлення форми та діалогу. */
+.feedback-section {
+  background: linear-gradient(150deg, #f4f6f4 0%, #e6ede6 100%);
+}
+.feedback-layout { align-items: center; }
+.feedback-intro { max-width: 540px; }
+.feedback-eyebrow {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 8px 13px;
+  background: #e0eae0;
+  border: 1px solid #b5ccb7;
+  border-radius: 999px;
+  color: #1e3f20;
+  font-size: .84rem;
+  font-weight: 700;
+}
+.feedback-intro h2 { max-width: 13ch; font-size: clamp(2.1rem, 4vw, 3.4rem); line-height: 1.1; }
+.feedback-lead { margin-top: 18px; font-size: 1.02rem; line-height: 1.7; color: #405845; }
+.feedback-points { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 14px; margin-top: 28px; }
+.feedback-points li { display: flex; align-items: start; gap: 9px; font-size: .91rem; line-height: 1.45; font-weight: 600; }
+.feedback-points li span { color: #237146; font-weight: 800; }
+.feedback-demo-note { margin-top: 26px; color: #405845; font-size: .85rem; line-height: 1.6; }
+.feedback-card { min-width: 0; border: 1px solid #d4dad4; background: white; padding: clamp(20px,3vw,36px); border-radius: 20px; box-shadow: 0 18px 48px rgb(30 63 32 / 10%); }
+.feedback-card::before { content:""; display: block; height: 6px; border-radius: 10px; margin: -16px -8px 25px; background: linear-gradient(100deg,#1e3f20, #4a6b4f, #c86432); }
+.feedback-card-title { font-size: 1.35rem; color: #182218; font-weight: 800; }
+.feedback-subtitle { font-size: .89rem; margin: 5px 0 20px; color: #4a6b4f; }
+.feedback-required { color: #aa2f2f; font-weight: 800; }
+.feedback-optional { color: #526458; font-size: .78rem; font-weight: 400; }
+.feedback-form { display: grid; gap: 19px; }
+.feedback-pair { gap: 16px; }
+.feedback-field { min-width: 0; display: flex; flex-direction: column; align-items: stretch; }
+.feedback-field > label, .feedback-checkline { color: #182218; font-size: .9rem; font-weight: 650; margin-bottom: 7px; }
+.feedback-field input:not([type="checkbox"]), .feedback-field textarea, .feedback-field select {
+  display: block; width: 100%; min-width: 0; min-height: 46px;
+  border: 1.5px solid #bfcac2; border-radius: 9px; padding: 10px 13px;
+  background: white; color: #182218; font: inherit; font-size: .94rem;
+  transition: border-color .18s ease, box-shadow .18s ease, background .18s ease;
+}
+.feedback-field textarea { resize: vertical; min-height: 116px; }
+.feedback-field input::placeholder, .feedback-field textarea::placeholder { color: #75857a; opacity: 1; }
+.feedback-field input:not([type="checkbox"]):hover, .feedback-field textarea:hover, .feedback-field select:hover { border-color: #4a6b4f; }
+.feedback-field input:not([type="checkbox"]):focus-visible, .feedback-field textarea:focus-visible, .feedback-field select:focus-visible {
+  outline: 3px solid #e9b18e; outline-offset: 2px;
+  border-color: #1e3f20;
+}
+.feedback-field[data-state="error"] input:not([type="checkbox"]),
+.feedback-field[data-state="error"] textarea,
+.feedback-field[data-state="error"] select { border-color: #bb3535; background: #fff8f8; }
+.feedback-field[data-state="error"] input:not([type="checkbox"]):focus-visible,
+.feedback-field[data-state="error"] textarea:focus-visible { outline-color: #f3b0b0; }
+.feedback-field[data-state="success"] input:not([type="checkbox"]),
+.feedback-field[data-state="success"] textarea { border-color: #267744; background: #f8fdf9; }
+.feedback-hint { color: #4e6453; font-size: .75rem; margin-top: 5px; }
+.feedback-error { margin-top: 7px; color: #9c2626; font-size: .8rem; font-weight: 600; line-height: 1.35; }
+.feedback-success { margin-top: 6px; color: #1b713c; font-size: .78rem; font-weight: 650; }
+.feedback-error[hidden], .feedback-success[hidden] { display: none !important; }
+.feedback-counter { color: #4e6453; font-size: .75rem; text-align: right; margin-top: 6px; }
+.feedback-checkline { display:flex; gap: 12px; align-items: flex-start; cursor:pointer; line-height:1.6; margin:0; font-weight: 500; }
+.feedback-checkline input { flex: 0 0 auto; appearance: auto; margin-top: 4px; width: 18px; height: 18px; accent-color: #1e3f20; }
+.feedback-consent[data-state="error"] .feedback-checkline { color: #9c2626; }
+.feedback-checkline input:focus-visible { outline: 3px solid #c86432; outline-offset: 3px; }
+.feedback-submit { min-height: 48px; width: 100%; border:0; padding: 12px 18px; border-radius: 10px; background: #1e3f20; color: white; font-size: .97rem; font-weight: 750; cursor:pointer; transition: background .18s ease, transform .18s ease; }
+.feedback-submit:hover { background: #2a5a2d; transform: translateY(-1px); }
+.feedback-submit:focus-visible { outline: 3px solid #c86432; outline-offset: 3px; }
+.feedback-form-status { font-size: .85rem; color: #9c2626; min-height: 0; }
+.feedback-form-status:empty { display:none; }
+.feedback-dialog { box-sizing: border-box; position: fixed; inset: 0; width: min(92vw, 440px); max-height: 88vh; margin: auto; border: 1px solid #d4dad4; border-radius: 18px; padding: 30px; box-shadow: 0 30px 90px #0003; background:white; color: #182218; overflow: auto; }
+.feedback-dialog::backdrop { background: rgb(8 20 12 / 66%); }
+.feedback-dialog-content { display:flex; flex-direction:column; align-items:center; text-align:center; gap:15px; }
+.feedback-dialog-icon { display:grid; place-items:center; width: 58px; height:58px; font-size:2rem; border-radius:50%; background:#e3f3e6; color:#1e6233; }
+.feedback-dialog-content h2 { font-size:1.8rem; }
+.feedback-dialog-content p { line-height:1.6; color:#405845; }
+.feedback-dialog-content button { margin-top: 10px; }
+@media (max-width: 767px) {
+  .feedback-layout { gap: 24px; }
+  .feedback-points { grid-template-columns: 1fr; gap: 10px; }
+  .feedback-intro h2 { max-width: 19ch; }
+  .feedback-card { padding: 22px 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .feedback-field input, .feedback-field textarea, .feedback-submit { transition:none; }
+  .feedback-submit:hover { transform:none; }
+}

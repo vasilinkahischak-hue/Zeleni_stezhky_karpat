@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ЗЕЛЕНІ СТЕЖКИ КАРПАТ — css/style.css (ЛР №6)
+   ЗЕЛЕНІ СТЕЖКИ КАРПАТ — css/style.css (аудит ЛР №9)
    Розмітка і більшість стилів тепер у Tailwind-класах. Тут лишилося лише те,
    що незручно або недоцільно виражати утилітами (Етап 14):
    1. Токени кольорів для власного CSS    4. Шеврон у <details>
@@ -7,7 +7,7 @@
    3. Скролбар-плавність підключена в <html class="scroll-smooth">
    ========================================================================== */
 
-/* 1. Токени (дзеркало theme.extend.colors у tailwind.config) */
+/* ===== 1. Дизайн-токени (theme.extend.colors) ===== */
 :root {
   --color-primary: #1E3F20;
   --color-secondary: #4A6B4F;
@@ -18,21 +18,37 @@
   --color-surface: #FFFFFF;
 }
 
-/* 2. Видимий фокус для клавіатури (білий на зеленому фоні) і зменшений рух */
+/* Гнучкі зображення без виходу за ширину контейнера. */
+img {
+    max-width: 100%;
+}
+
+/* ===== 2. Навігація з клавіатури та зменшення анімацій ===== */
 :focus-visible {
   outline: 3px solid var(--color-accent);
   outline-offset: 3px;
 }
-.on-dark :focus-visible { outline-color: var(--color-surface); }
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  *, *::before, *::after { transition: none !important; animation: none !important; }
+.on-dark :focus-visible {
+    outline-color: var(--color-surface);
 }
 
-/* 4. Програма за днями: власний шеврон замість стандартного маркера <details> */
-.program-summary { list-style: none; }
-.program-summary::-webkit-details-marker { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  html {
+      scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
+  }
+}
+
+/* ===== 3. Аккордеон програми туру: деталі та шеврон ===== */
+.program-summary {
+    list-style: none;
+}
+.program-summary::-webkit-details-marker {
+    display: none;
+}
 .program-summary::after {
   content: "";
   flex-shrink: 0;
@@ -44,9 +60,11 @@
   transform: rotate(225deg);
   transition: transform 0.2s ease-in-out;
 }
-.program-day:not([open]) .program-summary::after { transform: rotate(45deg); }
+.program-day:not([open]) .program-summary::after {
+    transform: rotate(45deg);
+}
 
-/* 5. Повзунок тривалості на radio-кнопках (працює без JS через сусідні селектори) */
+/* ===== 4. Тривалість туру: візуальний radio-повзунок ===== */
 .duration-top {
   display: flex;
   justify-content: space-between;
@@ -54,7 +72,11 @@
   margin-bottom: 16px;
   font-size: 0.8125rem;
 }
-.duration-value { display: none; font-weight: 700; color: var(--color-accent-hover); }
+.duration-value {
+    display: none;
+    font-weight: 700;
+    color: var(--color-accent-hover);
+}
 
 .duration-track {
   position: relative;
@@ -91,53 +113,288 @@
   border: 2px solid var(--color-line);
   transition: border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
-.duration-step:hover .duration-dot { border-color: var(--color-accent); }
+.duration-step:hover .duration-dot {
+    border-color: var(--color-accent);
+}
 
-#days-1:checked ~ .duration-top .duration-value--1 { display: block; }
-#days-1:checked ~ .duration-track { --fill: 0%; }
-#days-1:checked ~ .duration-track .duration-step:nth-child(-n+1) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
-#days-1:checked ~ .duration-track .duration-step:nth-child(1) { color: var(--color-accent-hover); font-weight: 700; }
-#days-1:checked ~ .duration-track .duration-step:nth-child(1) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
-#days-1:focus-visible ~ .duration-track .duration-step:nth-child(1) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
-#days-2:checked ~ .duration-top .duration-value--2 { display: block; }
-#days-2:checked ~ .duration-track { --fill: 25%; }
-#days-2:checked ~ .duration-track .duration-step:nth-child(-n+2) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
-#days-2:checked ~ .duration-track .duration-step:nth-child(2) { color: var(--color-accent-hover); font-weight: 700; }
-#days-2:checked ~ .duration-track .duration-step:nth-child(2) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
-#days-2:focus-visible ~ .duration-track .duration-step:nth-child(2) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
-#days-3:checked ~ .duration-top .duration-value--3 { display: block; }
-#days-3:checked ~ .duration-track { --fill: 50%; }
-#days-3:checked ~ .duration-track .duration-step:nth-child(-n+3) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
-#days-3:checked ~ .duration-track .duration-step:nth-child(3) { color: var(--color-accent-hover); font-weight: 700; }
-#days-3:checked ~ .duration-track .duration-step:nth-child(3) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
-#days-3:focus-visible ~ .duration-track .duration-step:nth-child(3) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
-#days-4:checked ~ .duration-top .duration-value--4 { display: block; }
-#days-4:checked ~ .duration-track { --fill: 75%; }
-#days-4:checked ~ .duration-track .duration-step:nth-child(-n+4) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
-#days-4:checked ~ .duration-track .duration-step:nth-child(4) { color: var(--color-accent-hover); font-weight: 700; }
-#days-4:checked ~ .duration-track .duration-step:nth-child(4) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
-#days-4:focus-visible ~ .duration-track .duration-step:nth-child(4) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
-#days-5:checked ~ .duration-top .duration-value--5 { display: block; }
-#days-5:checked ~ .duration-track { --fill: 100%; }
-#days-5:checked ~ .duration-track .duration-step:nth-child(-n+5) .duration-dot { border-color: var(--color-accent); background-color: var(--color-accent); }
-#days-5:checked ~ .duration-track .duration-step:nth-child(5) { color: var(--color-accent-hover); font-weight: 700; }
-#days-5:checked ~ .duration-track .duration-step:nth-child(5) .duration-dot { background-color: var(--color-surface); box-shadow: 0 0 0 3px var(--color-accent-tint); }
-#days-5:focus-visible ~ .duration-track .duration-step:nth-child(5) .duration-dot { outline: 3px solid var(--color-accent); outline-offset: 3px; }
+#days-1:checked ~ .duration-top .duration-value--1 {
+    display: block;
+}
+#days-1:checked ~ .duration-track {
+    --fill: 0%;
+}
+#days-1:checked ~ .duration-track .duration-step:nth-child(-n+1) .duration-dot {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+}
+#days-1:checked ~ .duration-track .duration-step:nth-child(1) {
+    color: var(--color-accent-hover);
+    font-weight: 700;
+}
+#days-1:checked ~ .duration-track .duration-step:nth-child(1) .duration-dot {
+    background-color: var(--color-surface);
+    box-shadow: 0 0 0 3px var(--color-accent-tint);
+}
+#days-1:focus-visible ~ .duration-track .duration-step:nth-child(1) .duration-dot {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+#days-2:checked ~ .duration-top .duration-value--2 {
+    display: block;
+}
+#days-2:checked ~ .duration-track {
+    --fill: 25%;
+}
+#days-2:checked ~ .duration-track .duration-step:nth-child(-n+2) .duration-dot {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+}
+#days-2:checked ~ .duration-track .duration-step:nth-child(2) {
+    color: var(--color-accent-hover);
+    font-weight: 700;
+}
+#days-2:checked ~ .duration-track .duration-step:nth-child(2) .duration-dot {
+    background-color: var(--color-surface);
+    box-shadow: 0 0 0 3px var(--color-accent-tint);
+}
+#days-2:focus-visible ~ .duration-track .duration-step:nth-child(2) .duration-dot {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+#days-3:checked ~ .duration-top .duration-value--3 {
+    display: block;
+}
+#days-3:checked ~ .duration-track {
+    --fill: 50%;
+}
+#days-3:checked ~ .duration-track .duration-step:nth-child(-n+3) .duration-dot {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+}
+#days-3:checked ~ .duration-track .duration-step:nth-child(3) {
+    color: var(--color-accent-hover);
+    font-weight: 700;
+}
+#days-3:checked ~ .duration-track .duration-step:nth-child(3) .duration-dot {
+    background-color: var(--color-surface);
+    box-shadow: 0 0 0 3px var(--color-accent-tint);
+}
+#days-3:focus-visible ~ .duration-track .duration-step:nth-child(3) .duration-dot {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+#days-4:checked ~ .duration-top .duration-value--4 {
+    display: block;
+}
+#days-4:checked ~ .duration-track {
+    --fill: 75%;
+}
+#days-4:checked ~ .duration-track .duration-step:nth-child(-n+4) .duration-dot {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+}
+#days-4:checked ~ .duration-track .duration-step:nth-child(4) {
+    color: var(--color-accent-hover);
+    font-weight: 700;
+}
+#days-4:checked ~ .duration-track .duration-step:nth-child(4) .duration-dot {
+    background-color: var(--color-surface);
+    box-shadow: 0 0 0 3px var(--color-accent-tint);
+}
+#days-4:focus-visible ~ .duration-track .duration-step:nth-child(4) .duration-dot {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
+#days-5:checked ~ .duration-top .duration-value--5 {
+    display: block;
+}
+#days-5:checked ~ .duration-track {
+    --fill: 100%;
+}
+#days-5:checked ~ .duration-track .duration-step:nth-child(-n+5) .duration-dot {
+    border-color: var(--color-accent);
+    background-color: var(--color-accent);
+}
+#days-5:checked ~ .duration-track .duration-step:nth-child(5) {
+    color: var(--color-accent-hover);
+    font-weight: 700;
+}
+#days-5:checked ~ .duration-track .duration-step:nth-child(5) .duration-dot {
+    background-color: var(--color-surface);
+    box-shadow: 0 0 0 3px var(--color-accent-tint);
+}
+#days-5:focus-visible ~ .duration-track .duration-step:nth-child(5) .duration-dot {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+}
 
-/* ЛР №7: єдині токени для вбудованих відео й карт (DRY). */
+/* ===== 5. Медіа: відео YouTube та інтерактивна карта ===== */
 :root {
   --media-max-width: 56rem;
   --media-radius: 0.75rem;
   --media-shadow: 0 2px 8px rgba(0,0,0,0.12);
   --media-map-radius: 1rem;
 }
-.media-frame { display: block; width: 100%; border: 0; box-shadow: var(--media-shadow); }
-.media-frame--video { aspect-ratio: 16 / 9; border-radius: var(--media-radius); max-width: var(--media-max-width); margin-inline: auto; }
-.media-frame--map { aspect-ratio: 4 / 3; border-radius: var(--media-map-radius); }
-@media (min-width: 768px) { .media-frame--map { aspect-ratio: 16 / 7; } }
-/* Стриманий друк підсумку: у PDF залишається лише зміст. */
+.media-frame {
+    display: block;
+    width: 100%;
+    border: 0;
+    box-shadow: var(--media-shadow);
+}
+.media-frame--video {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--media-radius);
+    max-width: var(--media-max-width);
+    margin-inline: auto;
+}
+.media-frame--map {
+    aspect-ratio: 4 / 3;
+    border-radius: var(--media-map-radius);
+}
+@media (min-width: 768px) {
+    .media-frame--map {
+        aspect-ratio: 16 / 7;
+    }
+}
+/* ===== 6. Друк демонстраційного розрахунку ===== */
 @media print {
-  header, footer, [data-action="print"], [data-action="calendar"] { display: none !important; }
-  body { color: #182218; background: white !important; }
-  main { width: 100%; }
+  header, footer, [data-action="print"], [data-action="calendar"] {
+      display: none !important;
+  }
+  body {
+      color: #182218;
+      background: white !important;
+  }
+  main {
+      width: 100%;
+  }
+}
+
+/* ===== ЛР №9: стійкі адаптивні iframe для медіа та карти ===== */
+.media-frame {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    border: 0;
+}
+.media-frame--video {
+    height: auto;
+    aspect-ratio: 16 / 9;
+}
+.media-frame--map {
+    height: 420px;
+    min-height: 360px;
+}
+@media (min-width: 768px) {
+    .media-frame--map {
+        height: 520px;
+    }
+}
+/* ===== ЛР №9: розкривний каталог спорядження ===== */
+.gear-model-panel[hidden],
+.field-error[hidden] {
+    display: none;
+}
+.gear-photo img {
+    display: none;
+}
+.gear-image-loaded img {
+    display: block;
+}
+.gear-image-loaded .gear-photo-placeholder {
+    display: none;
+}
+.field-error {
+    color: #b91c1c;
+}
+.is-invalid {
+    border-color: #b91c1c !important;
+    outline-color: #b91c1c;
+}
+.booking-dialog::backdrop {
+    background: rgba(10, 25, 10, .6);
+}
+@media (max-width: 639px) {
+    .booking-dialog {
+        max-height: calc(100dvh - 2rem);
+        overflow-y: auto;
+    }
+}
+.booking-dialog {
+    width: min(92vw, 540px);
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+}
+
+/* Самодостатня стилізація Hero незалежно від Tailwind CDN. */
+.bg-hero {
+  background-image: linear-gradient(90deg, rgba(255,255,255,.45) 0%,rgba(255,255,255,0) 65%), url('../assets/images/hero-bg.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* Налаштування сіток із попередньої дизайн-системи. */
+@media (min-width: 768px) {
+  .md\:grid-cols-header { grid-template-columns: 1fr auto 1fr; }
+  .md\:grid-cols-gallery { grid-template-columns: 2fr 1fr; }
+  .md\:grid-cols-footer { grid-template-columns: 1.4fr 1fr 1fr; }
+}
+@media (min-width: 1024px) {
+  .lg\:grid-cols-header { grid-template-columns: 1fr auto 1fr; }
+  .lg\:grid-cols-footer { grid-template-columns: 1.4fr 1fr 1fr; }
+  .lg\:grid-cols-catalog { grid-template-columns: 220px minmax(0,1fr); }
+  .lg\:grid-cols-detail { grid-template-columns: minmax(0,1fr) 320px; }
+  .lg\:grid-cols-story { grid-template-columns: 1.4fr 1fr; }
+}
+/* Всі медіаблоки тримають пропорції й правильну ширину навіть без зовнішніх стилів. */
+.media-frame--video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; }
+.media-frame--map { display: block; width: 100%; height: 440px; }
+@media (max-width: 639px) { .media-frame--map { height: 320px; min-height: 320px; } }
+@media (min-width: 768px) { .media-frame--map { height: 520px; } }
+
+
+/* ==========================================
+   ЗБІЛЬШЕННЯ ФОТО СПОРЯДЖЕННЯ
+   Спальні мішки та трекінгові палиці
+   Намети залишаються без змін
+   ========================================== */
+
+#gear-options-sleeping-bag [data-gear-photo],
+#gear-options-poles [data-gear-photo] {
+    box-sizing: border-box;
+    width: min(100%, 230px);
+    height: 220px;
+    padding: 8px;
+    flex-shrink: 0;
+    background-color: #fff;
+}
+
+/* Показуємо фотографії повністю */
+
+#gear-options-sleeping-bag [data-gear-photo] img,
+#gear-options-poles [data-gear-photo] img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+/* Розміри для планшетів і комп'ютерів */
+
+@media (min-width: 640px) {
+
+    /* Вертикальні фотографії спальників */
+
+    #gear-options-sleeping-bag [data-gear-photo] {
+        width: 190px;
+        height: 245px;
+    }
+
+    /* Фотографії трекінгових палиць */
+
+    #gear-options-poles [data-gear-photo] {
+        width: 230px;
+        height: 245px;
+    }
 }

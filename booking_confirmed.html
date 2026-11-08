@@ -1,179 +1,417 @@
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="uk">
-<head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Попередній підсумок — Зелені стежки Карпат</title>
-<meta content="Демонстраційний підсумок вибору екотуру. Жодна реальна оплата чи заявка не створюється." name="description"/>
-<link href="assets/images/logo_w.svg" rel="icon" type="image/svg+xml"/>
-<script src="https://cdn.tailwindcss.com/3.4.17"></script>
-<script src="js/tailwind.theme.js"></script>
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="css/style.css" rel="stylesheet"/>
-<script defer="" src="js/routes-data.js"></script><script defer="" src="js/site.js"></script><meta content="#1E3F20" name="theme-color"/></head>
-<body class="bg-background font-main text-base text-neutral-dark antialiased">
-<a class="absolute -top-12 left-0 z-[200] bg-accent-hover px-4 py-2 text-white transition-[top] focus:top-0" href="#main-content" title="Перейти до основного вмісту">Перейти до основного вмісту</a>
-<header class="sticky top-0 z-50 bg-white shadow-header">
-<div class="relative mx-auto flex h-16 max-w-container items-center justify-between gap-4 px-5">
-<a class="flex items-center gap-2.5 text-base font-semibold text-primary transition-opacity hover:opacity-80 md:justify-self-start md:text-lg" href="index.html#hero" title="Зелені стежки Карпат">
-<img alt="" class="h-9 w-auto md:h-8" src="assets/images/logo_w.svg"/>
-<span class="leading-tight">Зелені стежки Карпат</span>
-</a>
-<!-- Бургер без JS: прихований чекбокс (peer) + два <label> -->
-<input class="peer sr-only" id="nav-toggle" type="checkbox"/>
-<label class="grid size-11 cursor-pointer place-items-center rounded-lg bg-background text-primary peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent peer-checked:hidden md:hidden" for="nav-toggle">
-<span class="sr-only">Відкрити меню</span>
-<svg aria-hidden="true" class="" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M4 7h16M4 12h16M4 17h16"></path></svg>
-</label>
-<label class="hidden size-11 cursor-pointer place-items-center rounded-lg bg-background text-primary peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent peer-checked:grid md:peer-checked:hidden" for="nav-toggle">
-<span class="sr-only">Закрити меню</span>
-<svg aria-hidden="true" class="" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="20"><path d="M6 6l12 12M18 6 6 18"></path></svg>
-</label>
-<nav aria-label="Головна навігація" class="absolute inset-x-0 top-full hidden max-h-[calc(100vh-4rem)] overflow-y-auto bg-white px-5 pb-8 pt-4 shadow-header peer-checked:block md:static md:block md:max-h-none md:overflow-visible md:bg-transparent md:p-0 md:shadow-none" id="main-menu">
-<p class="mb-2 text-2xs uppercase tracking-widest text-secondary md:hidden">Меню</p>
-<ul class="flex flex-col gap-1 md:flex-row md:gap-5 lg:gap-8">
-<li><a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="index.html#hero" title="Головна">Головна</a></li>
-<li><a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="booking.html" title="Розрахувати маршрут">Розрахувати маршрут</a></li>
-<li><a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="#contacts" title="Контакти">Контакти</a></li>
-</ul>
-<div class="mt-4 flex flex-col gap-4 md:hidden">
-<div class="flex flex-col gap-3 border-t border-line pt-4 text-sm">
-<p>Еко-туризм та піші маршрути Карпатами</p>
-<a class="transition-colors hover:text-accent-hover" href="tel:+380971234567" title="+380 (97) 123-45-67">+380 (97) 123-45-67</a>
-<a class="transition-colors hover:text-accent-hover" href="mailto:info@carpathiantrails.ua" title="info@carpathiantrails.ua">info@carpathiantrails.ua</a>
-</div>
-</div>
-</nav>
-</div>
-</header>
-<main id="main-content">
-<section aria-labelledby="confirm-title" class="px-5 pb-8 pt-10 text-center md:pt-16">
-<div class="mx-auto max-w-container">
-<span class="mb-4 inline-grid size-14 place-items-center rounded-full bg-primary text-white ring-8 ring-tint"><svg aria-hidden="true" class="" fill="none" focusable="false" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="28"><path d="m5 12 5 5 9-10"></path></svg></span>
-<h1 class="font-heading text-confirm font-semibold text-primary" id="confirm-title">Демонстраційний підсумок маршруту</h1>
-<p class="mx-auto mb-4 mt-2 max-w-[35rem] text-sm text-secondary">Це попередній розрахунок для навчального прототипу. Реального бронювання, оплати чи надсилання електронного квитка не відбулося.</p>
-<p class="inline-block rounded-full border border-line bg-white px-4 py-1.5 text-2xs">Статус: заявку не створено · демонстраційний перегляд</p>
-</div>
-</section>
-<section aria-label="Деталі бронювання" class="px-5">
-<div class="mx-auto grid max-w-container gap-4 lg:grid-cols-detail lg:items-start">
-<article aria-labelledby="ticket-title" class="flex flex-col gap-4 rounded-2xl border border-line bg-white px-4 py-8">
-<h2 class="text-base font-semibold" id="ticket-title">Обраний маршрут</h2>
-<div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-<img alt="Гора Піп Іван" class="h-18 w-24 shrink-0 rounded-lg object-cover" id="confirmation-image" src="assets/images/pip-ivan.jpg"/>
-<div>
-<h3 class="mb-1.5 font-heading text-lg font-semibold text-neutral-dark" id="confirmation-route">Похід на Піп Іван та Чорногірський хребет</h3>
-<p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-primary bg-primary text-white" id="confirmation-eco">Eco-Score 9.8/10</p>
-</div>
-</div>
-<ul class="grid gap-4 border-y border-line py-4 sm:grid-cols-2">
-<li class="flex items-start gap-2.5">
-<svg aria-hidden="true" class="mt-0.5 shrink-0 text-secondary" fill="none" focusable="false" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><rect height="15" rx="2" width="16" x="4" y="5"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg>
-<div><p class="text-2xs text-secondary">Дата поїздки</p><p class="text-xs font-semibold leading-snug" id="confirmation-date">Дата уточнюється</p></div>
-</li>
-<li class="flex items-start gap-2.5">
-<svg aria-hidden="true" class="mt-0.5 shrink-0 text-secondary" fill="none" focusable="false" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="9" cy="8" r="3"></circle><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"></path><path d="M17 5a3 3 0 0 1 0 6M21 20c0-2.5-1.5-4.6-3.6-5.5"></path></svg>
-<div><p class="text-2xs text-secondary">Учасники</p><p class="text-xs font-semibold leading-snug" id="confirmation-guests">2 учасники</p></div>
-</li>
-<li class="flex items-start gap-2.5">
-<svg aria-hidden="true" class="mt-0.5 shrink-0 text-secondary" fill="none" focusable="false" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>
-<div><p class="text-2xs text-secondary">Точка та час збору</p><p class="text-xs font-semibold leading-snug">Уточнюється після погодження з організатором</p></div>
-</li>
-<li class="flex items-start gap-2.5">
-<svg aria-hidden="true" class="mt-0.5 shrink-0 text-secondary" fill="none" focusable="false" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="18"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4 4-7 8-7s8 3 8 7"></path></svg>
-<div><p class="text-2xs text-secondary">Місцевий гід</p><p class="text-xs font-semibold leading-snug">Гіда призначає організатор після узгодження</p></div>
-</li>
-</ul>
-<div>
-<p class="text-2xs text-secondary">Додаткові послуги</p>
-<ul class="mt-1 flex flex-col gap-1 text-xs" id="confirmation-extras"><li>Без додаткових послуг</li></ul>
-</div>
-<div class="flex flex-col items-start justify-between gap-4 border-t border-line pt-4 sm:flex-row sm:items-end">
-<div>
-<p class="text-2xs text-secondary">Статус оплати</p>
-<p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-secondary bg-tint text-primary">Оплата не здійснювалася</p>
-</div>
-<div class="sm:text-right">
-<p class="text-2xs text-secondary">Орієнтовна вартість</p>
-<p class="font-heading text-[1.75rem] font-semibold leading-tight text-primary" id="confirmation-total">— грн</p>
-</div>
-</div>
-<p class="flex items-start gap-2.5 rounded-lg border border-line bg-tint px-3.5 py-3 text-xs">Подорожуйте відповідально: не залишайте сміття та дотримуйтеся правил відвідування природоохоронних територій.</p>
-</article>
-<div class="flex flex-col gap-4">
-<div class="flex flex-col gap-2">
-<button class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-7 py-3 text-label bg-primary text-white hover:bg-primary-hover w-full gap-2" data-action="print" type="button">Друкувати попередній підсумок (PDF)</button>
-<button class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-7 py-3 text-label border border-primary bg-white text-primary hover:bg-tint w-full gap-2" data-action="calendar" type="button">Додати нагадування в календар (.ics)</button>
-</div>
-<section aria-labelledby="todo-title" class="rounded-2xl border border-line bg-white px-4 py-8">
-<h2 class="mb-4 text-base font-semibold" id="todo-title">Що робити далі? (Чек-лист)</h2>
-<ul class="flex flex-col gap-4">
-<li><label class="flex cursor-pointer items-start gap-2.5 text-xs"><input class="mt-0.5 size-4 shrink-0 accent-primary" type="checkbox"/> <span>Перевірте перелік обов’язкового спорядження у вашому квитку.</span></label></li>
-<li><label class="flex cursor-pointer items-start gap-2.5 text-xs"><input class="mt-0.5 size-4 shrink-0 accent-primary" type="checkbox"/> <span>Уточніть усі організаційні питання перед виходом на маршрут.</span></label></li>
-<li><label class="flex cursor-pointer items-start gap-2.5 text-xs"><input class="mt-0.5 size-4 shrink-0 accent-primary" type="checkbox"/> <span>Прибудьте на точку збору за 15 хвилин до старту.</span></label></li>
-</ul>
-</section>
-<section aria-labelledby="help-title" class="rounded-2xl border border-line bg-white px-4 py-8">
-<h2 class="mb-4 text-base font-semibold" id="help-title">Є запитання?</h2>
-<ul class="flex flex-col gap-1">
-<li><a class="flex min-h-11 items-center gap-2.5 text-xs transition-colors hover:text-accent-hover" href="mailto:info@carpathiantrails.ua?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BF%D1%80%D0%BE%20%D0%BF%D0%BE%D1%85%D1%96%D0%B4" title="Написати організатору">Написати організатору</a></li>
-<li><a class="flex min-h-11 items-center gap-2.5 text-xs transition-colors hover:text-accent-hover" href="index.html#contacts" title="Контактна інформація">Контактна інформація</a></li>
-<li><a class="flex min-h-11 items-center gap-2.5 text-xs transition-colors hover:text-accent-hover" href="tel:+380971234567" title="Телефон підтримки"><svg aria-hidden="true" class="" fill="none" focusable="false" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="16"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"></path></svg> <span>Телефон підтримки</span> <svg aria-hidden="true" class="ml-auto text-secondary" fill="none" focusable="false" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="14"><path d="M7 17 17 7M9 7h8v8"></path></svg></a></li>
-</ul>
-</section>
-</div>
-</div>
-</section>
-<section aria-labelledby="materials-title" class="px-5 py-10 md:py-16">
-<div class="mx-auto max-w-container">
-<p class="text-2xs text-secondary">Підготовка до поїздки</p>
-<h2 class="mb-4 font-heading text-2xl font-semibold text-primary" id="materials-title">Корисні матеріали для вашого маршруту</h2>
-<div class="grid gap-4 md:grid-cols-2">
-<article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-shadow hover:shadow-soft sm:flex-row">
-<img alt="" class="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-36" decoding="async" loading="lazy" src="assets/images/pip-ivan-camp.png"/>
-<div class="flex flex-col justify-center gap-1 p-4">
-<p class="text-[0.6875rem] text-secondary">Спорядження · 5 хв читання</p>
-<h3 class="font-heading text-[1.0625rem] font-semibold leading-snug text-neutral-dark">Що взяти в літній похід Карпатами</h3>
-<span class="mt-1 text-xs text-secondary">Матеріал готується</span>
-</div>
-</article>
-<article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-shadow hover:shadow-soft sm:flex-row">
-<img alt="" class="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-36" decoding="async" loading="lazy" src="assets/images/synevyr-camp.png"/>
-<div class="flex flex-col justify-center gap-1 p-4">
-<p class="text-[0.6875rem] text-secondary">Еко-поради · 4 хв читання</p>
-<h3 class="font-heading text-[1.0625rem] font-semibold leading-snug text-neutral-dark">Принцип Leave No Trace (Не залишай слідів)</h3>
-<span class="mt-1 text-xs text-secondary">Матеріал готується</span>
-</div>
-</article>
-</div>
-</div>
-</section>
-</main>
-<footer class="on-dark scroll-mt-20 border-t border-white/35 bg-secondary px-5 pb-4 pt-8 text-white" id="contacts">
-<div class="mx-auto max-w-container">
-<div class="mb-8 grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-footer">
-<a class="flex items-center gap-4 md:col-span-2 lg:col-span-1" href="index.html#hero" title="Еко-туризм та піші маршрути Карпатами">
-<img alt="Зелені стежки Карпат" class="h-18 w-auto" src="assets/images/logo_g.svg"/>
-<span class="max-w-40 text-sm">Еко-туризм та піші маршрути Карпатами</span>
-</a>
-<nav aria-label="Навігація підвалу">
-<ul class="flex flex-col gap-1">
-<li><a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="index.html#hero" title="Головна">Головна</a></li>
-<li><a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="routes.html" title="Маршрути">Маршрути</a></li>
-<li><a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="about.html" title="Про нас">Про нас</a></li>
-<li><a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="#contacts" title="Контакти">Контакти</a></li>
-</ul>
-</nav>
-<address class="flex flex-col gap-1 not-italic">
-<p class="font-bold">Контакти</p>
-<a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="tel:+380971234567" title="+380 (97) 123-45-67">+380 (97) 123-45-67</a>
-<a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="mailto:info@carpathiantrails.ua" title="info@carpathiantrails.ua">info@carpathiantrails.ua</a>
-<a class="text-label font-semibold underline underline-offset-4 transition-opacity hover:opacity-80" href="index.html#map-region" title="Регіон маршрутів на карті">Регіон маршрутів на карті</a></address>
-</div>
-<p class="pt-2 text-center text-xs"><small>© 2026 Зелені стежки Карпат. Усі права захищені.</small></p>
-</div>
-</footer>
-</body>
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        <title>
+            Попередній підсумок — Зелені стежки Карпат
+        </title>
+        <meta content="Демонстраційний підсумок вибору екотуру. Жодна реальна оплата чи заявка не створюється." name="description"/>
+        <link href="assets/images/logo_w.svg" rel="icon" type="image/svg+xml"/>
+        <link href="https://fonts.googleapis.com" rel="preconnect"/>
+        <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+        <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+        <link href="css/tailwind-built.css" rel="stylesheet"/>
+        <link href="css/style.css" rel="stylesheet"/>
+        <script defer="" src="js/routes-data.js">
+        </script>
+        <script defer="" src="js/site.js">
+        </script>
+        <meta content="#1E3F20" name="theme-color"/>
+    </head>
+    <body class="bg-background font-main text-base text-neutral-dark antialiased">
+        <a class="absolute -top-12 left-0 z-[200] bg-accent-hover px-4 py-2 text-white transition-[top] focus:top-0" href="#main-content" title="Перейти до основного вмісту">
+            Перейти до основного вмісту
+        </a>
+        <!-- BEGIN HEADER -->
+        <header class="sticky top-0 z-50 bg-white shadow-header">
+            <div class="relative mx-auto flex h-20 max-w-container items-center justify-between gap-4 px-5">
+                <a class="flex items-center gap-2.5 text-base font-semibold text-primary transition-opacity hover:opacity-80 md:justify-self-start md:text-lg" href="index.html#hero" title="Зелені стежки Карпат">
+                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" src="assets/images/logo_w.svg"/>
+                    <span class="leading-tight">
+                        Зелені стежки Карпат
+                    </span>
+                </a>
+                <!-- Бургер без JS: прихований чекбокс (peer) + два <label> -->
+                <input class="peer sr-only" id="nav-toggle" type="checkbox"/>
+                <label class="grid size-11 cursor-pointer place-items-center rounded-lg bg-background text-primary peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent peer-checked:hidden md:hidden" for="nav-toggle">
+                    <span class="sr-only">
+                        Відкрити меню
+                    </span>
+                    <svg aria-hidden="true" class="" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20">
+                        <path d="M4 7h16M4 12h16M4 17h16">
+                        </path>
+                    </svg>
+                </label>
+                <label class="hidden size-11 cursor-pointer place-items-center rounded-lg bg-background text-primary peer-focus-visible:outline peer-focus-visible:outline-2 peer-focus-visible:outline-offset-2 peer-focus-visible:outline-accent peer-checked:grid md:peer-checked:hidden" for="nav-toggle">
+                    <span class="sr-only">
+                        Закрити меню
+                    </span>
+                    <svg aria-hidden="true" class="" fill="none" focusable="false" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="20">
+                        <path d="M6 6l12 12M18 6 6 18">
+                        </path>
+                    </svg>
+                </label>
+                <nav aria-label="Головна навігація" class="absolute inset-x-0 top-full hidden max-h-[calc(100vh-5rem)] overflow-y-auto bg-white px-5 pb-8 pt-4 shadow-header peer-checked:block md:static md:block md:max-h-none md:overflow-visible md:bg-transparent md:p-0 md:shadow-none" id="main-menu">
+                    <p class="mb-2 text-2xs uppercase tracking-widest text-secondary md:hidden">
+                        Меню
+                    </p>
+                    <ul class="flex flex-col gap-1 md:flex-row md:gap-5 lg:gap-8">
+                        <li>
+                            <a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="index.html#hero" title="Головна">
+                                Головна
+                            </a>
+                        </li>
+                        <li>
+                            <a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="booking.html" title="Розрахувати маршрут">
+                                Розрахувати маршрут
+                            </a>
+                        </li>
+                        <li>
+                            <a class="block border-l-4 border-transparent px-3.5 py-3 text-lg font-semibold text-primary transition-colors hover:border-accent hover:bg-background aria-[current=page]:border-accent aria-[current=page]:bg-background md:border-b-2 md:border-l-0 md:bg-transparent md:px-0 md:py-2 md:text-label md:hover:bg-transparent md:hover:text-accent md:aria-[current=page]:bg-transparent md:aria-[current=page]:text-accent" href="#contacts" title="Контакти">
+                                Контакти
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="mt-4 flex flex-col gap-4 md:hidden">
+                        <div class="flex flex-col gap-3 border-t border-line pt-4 text-sm">
+                            <p>
+                                Еко-туризм та піші маршрути Карпатами
+                            </p>
+                            <a class="transition-colors hover:text-accent-hover" href="tel:+380971234567" title="+380 (97) 123-45-67">
+                                +380 (97) 123-45-67
+                            </a>
+                            <a class="transition-colors hover:text-accent-hover" href="mailto:info@carpathiantrails.ua" title="info@carpathiantrails.ua">
+                                info@carpathiantrails.ua
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <!-- END HEADER -->
+        <!-- BEGIN MAIN -->
+        <main id="main-content">
+            <!-- BEGIN SECTION: Демонстраційний підсумок маршруту -->
+            <section aria-labelledby="confirm-title" class="px-5 pb-8 pt-10 text-center md:pt-16">
+                <div class="mx-auto max-w-container">
+                    <span class="mb-4 inline-grid size-14 place-items-center rounded-full bg-primary text-white ring-8 ring-tint">
+                        <svg aria-hidden="true" class="" fill="none" focusable="false" height="28" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="28">
+                            <path d="m5 12 5 5 9-10">
+                            </path>
+                        </svg>
+                    </span>
+                    <h1 class="font-heading text-confirm font-semibold text-primary" id="confirm-title">
+                        Демонстраційний підсумок маршруту
+                    </h1>
+                    <p class="mx-auto mb-4 mt-2 max-w-[35rem] text-sm text-secondary">
+                        Це попередній розрахунок для навчального прототипу. Реального бронювання, оплати чи надсилання електронного квитка не відбулося.
+                    </p>
+                    <p class="inline-block rounded-full border border-line bg-white px-4 py-1.5 text-2xs">
+                        Статус: заявку не створено · демонстраційний перегляд
+                    </p>
+                </div>
+            </section>
+            <!-- END SECTION: Демонстраційний підсумок маршруту -->
+            <!-- BEGIN SECTION: Обраний маршрут -->
+            <section aria-label="Деталі бронювання" class="px-5">
+                <div class="mx-auto grid max-w-container gap-4 lg:grid-cols-detail lg:items-start">
+                    <article aria-labelledby="ticket-title" class="flex flex-col gap-4 rounded-2xl border border-line bg-white px-4 py-8">
+                        <h2 class="text-base font-semibold" id="ticket-title">
+                            Обраний маршрут
+                        </h2>
+                        <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
+                            <img alt="Гора Піп Іван" class="h-18 w-24 shrink-0 rounded-lg object-cover" id="confirmation-image" src="assets/images/pip-ivan.jpg"/>
+                            <div>
+                                <h3 class="mb-1.5 font-heading text-lg font-semibold text-neutral-dark" id="confirmation-route">
+                                    Похід на Піп Іван та Чорногірський хребет
+                                </h3>
+                                <p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-primary bg-primary text-white" id="confirmation-eco">
+                                    Eco-Score 9.8/10
+                                </p>
+                            </div>
+                        </div>
+                        <ul class="grid gap-4 border-y border-line py-4 sm:grid-cols-2">
+                            <li class="flex items-start gap-2.5">
+                                <svg aria-hidden="true" class="mt-0.5 shrink-0 text-secondary" fill="none" focusable="false" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18">
+                                    <rect height="15" rx="2" width="16" x="4" y="5">
+                                    </rect>
+                                    <path d="M4 10h16M9 3v4M15 3v4">
+                                    </path>
+                                </svg>
+                                <div>
+                                    <p class="text-2xs text-secondary">
+                                        Дата поїздки
+                                    </p>
+                                    <p class="text-xs font-semibold leading-snug" id="confirmation-date">
+                                        Дата уточнюється
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg aria-hidden="true" class="mt-0.5 shrink-0 text-secondary" fill="none" focusable="false" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18">
+                                    <circle cx="9" cy="8" r="3">
+                                    </circle>
+                                    <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6">
+                                    </path>
+                                    <path d="M17 5a3 3 0 0 1 0 6M21 20c0-2.5-1.5-4.6-3.6-5.5">
+                                    </path>
+                                </svg>
+                                <div>
+                                    <p class="text-2xs text-secondary">
+                                        Учасники
+                                    </p>
+                                    <p class="text-xs font-semibold leading-snug" id="confirmation-guests">
+                                        2 учасники
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg aria-hidden="true" class="mt-0.5 shrink-0 text-secondary" fill="none" focusable="false" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18">
+                                    <path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z">
+                                    </path>
+                                    <circle cx="12" cy="10" r="2.5">
+                                    </circle>
+                                </svg>
+                                <div>
+                                    <p class="text-2xs text-secondary">
+                                        Точка та час збору
+                                    </p>
+                                    <p class="text-xs font-semibold leading-snug">
+                                        Уточнюється після погодження з організатором
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <svg aria-hidden="true" class="mt-0.5 shrink-0 text-secondary" fill="none" focusable="false" height="18" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="18">
+                                    <circle cx="12" cy="8" r="4">
+                                    </circle>
+                                    <path d="M4 21c0-4 4-7 8-7s8 3 8 7">
+                                    </path>
+                                </svg>
+                                <div>
+                                    <p class="text-2xs text-secondary">
+                                        Місцевий гід
+                                    </p>
+                                    <p class="text-xs font-semibold leading-snug">
+                                        Гіда призначає організатор після узгодження
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                        <div>
+                            <p class="text-2xs text-secondary">
+                                Додаткові послуги
+                            </p>
+                            <ul class="mt-1 flex flex-col gap-1 text-xs" id="confirmation-extras">
+                                <li>
+                                    Без додаткових послуг
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="flex flex-col items-start justify-between gap-4 border-t border-line pt-4 sm:flex-row sm:items-end">
+                            <div>
+                                <p class="text-2xs text-secondary">
+                                    Статус оплати
+                                </p>
+                                <p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-secondary bg-tint text-primary">
+                                    Оплата не здійснювалася
+                                </p>
+                            </div>
+                            <div class="sm:text-right">
+                                <p class="text-2xs text-secondary">
+                                    Орієнтовна вартість
+                                </p>
+                                <p class="font-heading text-[1.75rem] font-semibold leading-tight text-primary" id="confirmation-total">
+                                    — грн
+                                </p>
+                            </div>
+                        </div>
+                        <p class="flex items-start gap-2.5 rounded-lg border border-line bg-tint px-3.5 py-3 text-xs">
+                            Подорожуйте відповідально: не залишайте сміття та дотримуйтеся правил відвідування природоохоронних територій.
+                        </p>
+                    </article>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-col gap-2">
+                            <button class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-7 py-3 text-label bg-primary text-white hover:bg-primary-hover w-full gap-2" data-action="print" type="button">
+                                Друкувати попередній підсумок (PDF)
+                            </button>
+                            <button class="inline-flex min-h-11 items-center justify-center rounded-full text-center font-semibold transition duration-200 hover:-translate-y-0.5 motion-reduce:transition-none motion-reduce:hover:translate-y-0 px-7 py-3 text-label border border-primary bg-white text-primary hover:bg-tint w-full gap-2" data-action="calendar" type="button">
+                                Додати нагадування в календар (.ics)
+                            </button>
+                        </div>
+                        <!-- BEGIN SECTION: Що робити далі? (Чек-лист) -->
+                        <section aria-labelledby="todo-title" class="rounded-2xl border border-line bg-white px-4 py-8">
+                            <h2 class="mb-4 text-base font-semibold" id="todo-title">
+                                Що робити далі? (Чек-лист)
+                            </h2>
+                            <ul class="flex flex-col gap-4">
+                                <li>
+                                    <label class="flex cursor-pointer items-start gap-2.5 text-xs">
+                                        <input class="mt-0.5 size-4 shrink-0 accent-primary" type="checkbox"/>
+                                        <span>
+                                            Перевірте перелік обов’язкового спорядження у вашому квитку.
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex cursor-pointer items-start gap-2.5 text-xs">
+                                        <input class="mt-0.5 size-4 shrink-0 accent-primary" type="checkbox"/>
+                                        <span>
+                                            Уточніть усі організаційні питання перед виходом на маршрут.
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="flex cursor-pointer items-start gap-2.5 text-xs">
+                                        <input class="mt-0.5 size-4 shrink-0 accent-primary" type="checkbox"/>
+                                        <span>
+                                            Прибудьте на точку збору за 15 хвилин до старту.
+                                        </span>
+                                    </label>
+                                </li>
+                            </ul>
+                        </section>
+                        <!-- END SECTION: Що робити далі? (Чек-лист) -->
+                        <!-- BEGIN SECTION: Є запитання? -->
+                        <section aria-labelledby="help-title" class="rounded-2xl border border-line bg-white px-4 py-8">
+                            <h2 class="mb-4 text-base font-semibold" id="help-title">
+                                Є запитання?
+                            </h2>
+                            <ul class="flex flex-col gap-1">
+                                <li>
+                                    <a class="flex min-h-11 items-center gap-2.5 text-xs transition-colors hover:text-accent-hover" href="mailto:info@carpathiantrails.ua?subject=%D0%97%D0%B0%D0%BF%D0%B8%D1%82%D0%B0%D0%BD%D0%BD%D1%8F%20%D0%BF%D1%80%D0%BE%20%D0%BF%D0%BE%D1%85%D1%96%D0%B4" title="Написати організатору">
+                                        Написати організатору
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex min-h-11 items-center gap-2.5 text-xs transition-colors hover:text-accent-hover" href="index.html#contacts" title="Контактна інформація">
+                                        Контактна інформація
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="flex min-h-11 items-center gap-2.5 text-xs transition-colors hover:text-accent-hover" href="tel:+380971234567" title="Телефон підтримки">
+                                        <svg aria-hidden="true" class="" fill="none" focusable="false" height="16" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="16">
+                                            <path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z">
+                                            </path>
+                                        </svg>
+                                        <span>
+                                            Телефон підтримки
+                                        </span>
+                                        <svg aria-hidden="true" class="ml-auto text-secondary" fill="none" focusable="false" height="14" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="14">
+                                            <path d="M7 17 17 7M9 7h8v8">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </section>
+                        <!-- END SECTION: Є запитання? -->
+                    </div>
+                </div>
+            </section>
+            <!-- END SECTION: Обраний маршрут -->
+            <!-- BEGIN SECTION: Корисні матеріали для вашого маршруту -->
+            <section aria-labelledby="materials-title" class="px-5 py-10 md:py-16">
+                <div class="mx-auto max-w-container">
+                    <p class="text-2xs text-secondary">
+                        Підготовка до поїздки
+                    </p>
+                    <h2 class="mb-4 font-heading text-2xl font-semibold text-primary" id="materials-title">
+                        Корисні матеріали для вашого маршруту
+                    </h2>
+                    <div class="grid gap-4 md:grid-cols-2">
+                        <article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-shadow hover:shadow-soft sm:flex-row">
+                            <img alt="" class="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-36" decoding="async" loading="lazy" src="assets/images/pip-ivan-camp.png"/>
+                            <div class="flex flex-col justify-center gap-1 p-4">
+                                <p class="text-[0.6875rem] text-secondary">
+                                    Спорядження · 5 хв читання
+                                </p>
+                                <h3 class="font-heading text-[1.0625rem] font-semibold leading-snug text-neutral-dark">
+                                    Що взяти в літній похід Карпатами
+                                </h3>
+                                <span class="mt-1 text-xs text-secondary">
+                                    Матеріал готується
+                                </span>
+                            </div>
+                        </article>
+                        <article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-shadow hover:shadow-soft sm:flex-row">
+                            <img alt="" class="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-36" decoding="async" loading="lazy" src="assets/images/synevyr-camp.png"/>
+                            <div class="flex flex-col justify-center gap-1 p-4">
+                                <p class="text-[0.6875rem] text-secondary">
+                                    Еко-поради · 4 хв читання
+                                </p>
+                                <h3 class="font-heading text-[1.0625rem] font-semibold leading-snug text-neutral-dark">
+                                    Принцип Leave No Trace (Не залишай слідів)
+                                </h3>
+                                <span class="mt-1 text-xs text-secondary">
+                                    Матеріал готується
+                                </span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </section>
+            <!-- END SECTION: Корисні матеріали для вашого маршруту -->
+        </main>
+        <!-- END MAIN -->
+        <!-- BEGIN FOOTER -->
+        <footer class="on-dark scroll-mt-20 border-t border-white/35 bg-secondary px-5 pb-4 pt-8 text-white" id="contacts">
+            <div class="mx-auto max-w-container">
+                <div class="mb-8 grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-footer">
+                    <a class="flex items-center gap-4 md:col-span-2 lg:col-span-1" href="index.html#hero" title="Еко-туризм та піші маршрути Карпатами">
+                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" src="assets/images/logo_g.svg"/>
+                        <span class="max-w-40 text-sm">
+                            Еко-туризм та піші маршрути Карпатами
+                        </span>
+                    </a>
+                    <nav aria-label="Навігація підвалу">
+                        <ul class="flex flex-col gap-1">
+                            <li>
+                                <a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="index.html#hero" title="Головна">
+                                    Головна
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="routes.html" title="Маршрути">
+                                    Маршрути
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="about.html" title="Про нас">
+                                    Про нас
+                                </a>
+                            </li>
+                            <li>
+                                <a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="#contacts" title="Контакти">
+                                    Контакти
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <address class="flex flex-col gap-1 not-italic">
+                        <p class="font-bold">
+                            Контакти
+                        </p>
+                        <a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="tel:+380971234567" title="+380 (97) 123-45-67">
+                            +380 (97) 123-45-67
+                        </a>
+                        <a class="text-label font-semibold transition-opacity hover:underline hover:opacity-75" href="mailto:info@carpathiantrails.ua" title="info@carpathiantrails.ua">
+                            info@carpathiantrails.ua
+                        </a>
+                        <a class="text-label font-semibold underline underline-offset-4 transition-opacity hover:opacity-80" href="index.html#map-region" title="Регіон маршрутів на карті">
+                            Регіон маршрутів на карті
+                        </a>
+                    <a class="text-label font-semibold underline underline-offset-4 transition-opacity hover:opacity-80" href="index.html#feedback" title="Написати нам через форму зворотного зв'язку">Написати нам</a>
+                    </address>
+                </div>
+                <p class="pt-2 text-center text-xs">
+                    <small>
+                        © 2026 Зелені стежки Карпат. Усі права захищені.
+                    </small>
+                </p>
+            </div>
+        </footer>
+        <!-- END FOOTER -->
+    </body>
 </html>
