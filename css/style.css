@@ -353,13 +353,8 @@ img {
 @media (max-width: 639px) { .media-frame--map { height: 320px; min-height: 320px; } }
 @media (min-width: 768px) { .media-frame--map { height: 520px; } }
 
-
-/* ==========================================
-   ЗБІЛЬШЕННЯ ФОТО СПОРЯДЖЕННЯ
-   Спальні мішки та трекінгові палиці
-   Намети залишаються без змін
-   ========================================== */
-
+/* ===== Розмір фото спорядження: спальники та трекінгові палиці =====
+   Намети не зачіпаємо. Фото відображаємо повністю, без обрізання. */
 #gear-options-sleeping-bag [data-gear-photo],
 #gear-options-poles [data-gear-photo] {
     box-sizing: border-box;
@@ -370,8 +365,6 @@ img {
     background-color: #fff;
 }
 
-/* Показуємо фотографії повністю */
-
 #gear-options-sleeping-bag [data-gear-photo] img,
 #gear-options-poles [data-gear-photo] img {
     width: 100%;
@@ -380,19 +373,14 @@ img {
     object-position: center;
 }
 
-/* Розміри для планшетів і комп'ютерів */
-
 @media (min-width: 640px) {
-
-    /* Вертикальні фотографії спальників */
-
+    /* Спальні мішки — вертикальні фото */
     #gear-options-sleeping-bag [data-gear-photo] {
         width: 190px;
         height: 245px;
     }
 
-    /* Фотографії трекінгових палиць */
-
+    /* Палиці — трохи ширше місце для повного комплекту */
     #gear-options-poles [data-gear-photo] {
         width: 230px;
         height: 245px;

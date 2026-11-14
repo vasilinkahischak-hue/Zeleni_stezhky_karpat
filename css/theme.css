@@ -1,0 +1,115 @@
+/* Темно-зелена тема — ЛР №10. Мінімалістичний перемикач у лівому куті шапки. */
+.header-brand-group {
+  display: flex;
+  align-items: center;
+  justify-self: start;
+  min-width: 0;
+  gap: 12px;
+}
+.header-brand-group > a { min-width: 0; }
+.theme-switch {
+  display: inline-grid;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #a5baa7;
+  border-radius: 50%;
+  background: #f4f8f4;
+  color: #1e3f20;
+  cursor: pointer;
+  transition: color .18s ease, background-color .18s ease, border-color .18s ease;
+}
+.theme-switch:hover { background: #e1ece2; }
+.theme-switch:focus-visible {outline: 3px solid #c86432; outline-offset: 3px;}
+.theme-switch-icon { width: 21px; height: 21px; grid-area: 1 / 1; }
+.theme-icon-sun { display: none; }
+html[data-theme="dark"] .theme-icon-moon { display: none; }
+html[data-theme="dark"] .theme-icon-sun { display: block; }
+@media(max-width: 480px) {
+  .header-brand-group { gap: 6px; }
+  .theme-switch { width: 44px; height: 44px; min-width: 44px; }
+  .header-brand-group a { gap: 5px; }
+  .header-brand-group a img { height: 42px; }
+  .header-brand-group a span {font-size: 13px; max-width: 130px;}
+}
+@media(min-width:768px) and (max-width:1099px) {
+  .header-brand-group a span { display:none; }
+}
+
+html[data-theme="dark"] { color-scheme: dark; --color-primary:#daf1dc; --color-secondary:#c0d6c4; --color-accent:#f5a270; --color-accent-hover:#ba622f; --color-accent-tint:#3e392d; --color-line:#496b5a; --color-surface:#204236; }
+html[data-theme="dark"] body {background:#10291f;color:#e8f3e9;}
+html[data-theme="dark"] [class~="bg-background"] {background-color:#112c23;}
+html[data-theme="dark"] [class~="bg-white"] {background-color:#1c3c31;}
+html[data-theme="dark"] [class~="bg-tint"] {background-color:#284c3d;}
+html[data-theme="dark"] [class~="bg-primary"] {background-color:#315b43;}
+html[data-theme="dark"] [class~="bg-secondary"] {background-color:#204032;}
+html[data-theme="dark"] [class~="text-primary"] {color:#e2f4e5;}
+html[data-theme="dark"] [class~="text-secondary"] {color:#c5dacc;}
+html[data-theme="dark"] [class~="text-neutral-dark"] {color:#eef6ed;}
+html[data-theme="dark"] [class~="border-line"] {border-color:#496958;}
+html[data-theme="dark"] [class~="border-neutral-dark"] {border-color:#507061;}
+html[data-theme="dark"] [class~="bg-accent-hover"] {background-color:#b45328;}
+html[data-theme="dark"] header {background:#16362a;border-bottom:1px solid #416451;}
+html[data-theme="dark"] #main-menu {background:#16362a;}
+html[data-theme="dark"] .theme-switch {background:transparent;color:#f3f6ed;border-color:#82a58d;}
+html[data-theme="dark"] .theme-switch:hover {background:#315b43;}
+html[data-theme="dark"] #hero {position:relative;isolation:isolate;}
+html[data-theme="dark"] #hero::before {content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(5,25,18,.79),rgba(9,29,24,.26) 76%);}
+html[data-theme="dark"] #hero [class~="text-neutral-dark"],html[data-theme="dark"] #hero p {color:#fff;}
+html[data-theme="dark"] footer {background:#16362a;}
+html[data-theme="dark"] footer a,html[data-theme="dark"] .on-dark {color:#f3f6ed;}
+html[data-theme="dark"] [class~="shadow-card"],html[data-theme="dark"] [class~="shadow-soft"] {box-shadow:0 8px 22px rgba(0,0,0,.18);}
+html[data-theme="dark"] input:not([type="radio"]):not([type="checkbox"]),html[data-theme="dark"] textarea,html[data-theme="dark"] select {color:#f4f6f0;background-color:#153327;border-color:#5d7965;}
+html[data-theme="dark"] input::placeholder,html[data-theme="dark"] textarea::placeholder {color:#aec1b1;opacity:1;}
+html[data-theme="dark"] input[type="radio"],html[data-theme="dark"] input[type="checkbox"] {accent-color:#c46b3f;}
+html[data-theme="dark"] .gear-model-panel,html[data-theme="dark"] .gear-model-option {background-color:#224133;color:#ebf4ea;border-color:#57735e;}
+html[data-theme="dark"] .gear-photo {background-color:#e7f1e8;}
+html[data-theme="dark"] .gear-photo-placeholder {color:#31533c;}
+html[data-theme="dark"] .feedback-section {background:#112c23;}
+html[data-theme="dark"] .feedback-form,html[data-theme="dark"] .feedback-card,html[data-theme="dark"] .feedback-dialog {background:#1d3d30;color:#eaf7e8;border-color:#557660;}
+html[data-theme="dark"] .feedback-form label,html[data-theme="dark"] .feedback-section p,html[data-theme="dark"] .feedback-form-status {color:#d3e6d4;}
+html[data-theme="dark"] .feedback-form input,html[data-theme="dark"] .feedback-form textarea,html[data-theme="dark"] .feedback-form select {background:#173427;color:#eef7e9;border-color:#698371;}
+html[data-theme="dark"] .feedback-dialog h2 {color:#eef7e9;}
+html[data-theme="dark"] details, html[data-theme="dark"] article {border-color:#496958;}
+html[data-theme="dark"] .on-dark [class~="text-white"],html[data-theme="dark"] [class~="text-white"] {color:#fff;}
+@media(prefers-reduced-motion:reduce) {.theme-switch {transition:none;} }
+
+/* Header, його навігація та footer мають один і той самий темно-зелений фон.
+   На desktop прибираємо окремий прямокутник навігації. */
+html[data-theme="dark"] header,
+html[data-theme="dark"] footer { background-color: #16362a !important; }
+@media (min-width: 768px) {
+  html[data-theme="dark"] #main-menu {
+    background-color: transparent !important;
+    box-shadow: none !important;
+  }
+}
+@media (max-width: 767px) {
+  html[data-theme="dark"] #main-menu { background-color: #16362a !important; }
+}
+
+/* Перемикач «Сітка / Карта» у темній темі: контрастні обидва стани. */
+html[data-theme="dark"] [aria-label="Вигляд каталогу"] {
+  background: #16362a !important;
+  border-color: #74947c !important;
+}
+html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view] {
+  background: transparent !important;
+  color: #e8f3e9 !important;
+  border-color: #74947c !important;
+}
+html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view][aria-pressed="true"] {
+  background: #426f54 !important;
+  color: #ffffff !important;
+  box-shadow: inset 0 0 0 1px #b5d0bd;
+}
+html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view]:hover {
+  background: #345d47 !important;
+  color: #ffffff !important;
+}
+html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view]:focus-visible {
+  outline: 3px solid #f5a270;
+  outline-offset: -3px;
+}

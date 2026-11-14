@@ -1,0 +1,54 @@
+/* ЛР №10 — маршрути, карусель та фотогалерея. */
+.lr10-section { padding: 64px 20px; }
+.lr10-container { max-width: 1240px; margin: 0 auto; }
+.lr10-heading { font-family: 'Newsreader', Georgia, serif; font-size: clamp(2rem,4vw,2.75rem); font-weight: 600; text-align: center; color: var(--color-primary); }
+.lr10-intro { max-width: 720px; margin: 12px auto 32px; line-height: 1.6; text-align: center; color: var(--color-secondary); }
+.lr10-routes-section { background: #fff; }
+.lr10-route-swiper { width:100%; overflow: hidden; padding: 8px 4px 20px; }
+.lr10-route-swiper .swiper-wrapper { display: flex; align-items: stretch; }
+.lr10-route-swiper .swiper-slide { flex-shrink: 0; height: auto; }
+.lr10-route-card { height: 100%; min-width:0; display:flex; flex-direction:column; border:1px solid #d4dad4; border-radius:18px; overflow:hidden; background:#fff; box-shadow:0 6px 24px rgba(21,56,35,.07); }
+.lr10-route-photo-link { display:block; height: 215px; overflow:hidden; background: #e7eee9; }
+.lr10-route-photo-link img { height:100%;width:100%;object-fit:cover;display:block; transition: transform .25s ease; }
+.lr10-route-photo-link:hover img { transform:scale(1.03); }
+.lr10-card-content { padding:18px; display:flex; flex-direction:column; gap:10px;flex:1; }
+.lr10-card-content h3 { color:#172a1c; font-size:1.1rem; font-weight:700; line-height:1.35; min-height:2.7em; }
+.lr10-route-meta { color:#456b52; font-size: .86rem; }
+.lr10-route-price { margin-top:auto; color:#1e3f20; font-weight:700; }
+.lr10-route-cta { margin-top:4px;display:block;text-align:center;background:#1e3f20;color:#fff;border-radius:999px;padding:12px 14px;font-weight:700;min-height:44px; }
+.lr10-route-cta:hover { background:#315a36; }
+.lr10-swiper-controls { display:flex;align-items:center;justify-content:center;gap:16px;margin:4px auto 0; }
+.lr10-swiper-prev,.lr10-swiper-next { width:44px;height:44px;border-radius:50%;border:1px solid #4a6b4f;background:#fff;color:#1e3f20;font-size:1.1rem;cursor:pointer; }
+.lr10-swiper-prev:hover,.lr10-swiper-next:hover { background:#e9f1eb; }
+.lr10-swiper-pagination { display:flex;align-items:center;justify-content:center;gap:6px;min-height:24px; }
+.lr10-swiper-pagination .swiper-pagination-bullet { opacity:.45; background:#4a6b4f;width:9px;height:9px;margin:0 3px; }
+.lr10-swiper-pagination .swiper-pagination-bullet-active { background:#a94f24;opacity:1; }
+.lr10-all-routes { margin:24px 0 0;text-align:center; }
+.lr10-all-routes a {font-weight:700;color:var(--color-primary);text-decoration:underline;text-underline-offset:4px; }
+/* FOUC fallback before Swiper JS, plus resilience if CDN unavailable. */
+.lr10-route-swiper:not(.swiper-initialized) .swiper-wrapper {display:grid;grid-template-columns:1fr; gap:20px;}
+.lr10-route-swiper:not(.swiper-initialized) .swiper-slide {width:100%;}
+@media(min-width:768px) { .lr10-route-swiper:not(.swiper-initialized) .swiper-wrapper { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media(min-width:1024px) { .lr10-route-swiper:not(.swiper-initialized) .swiper-wrapper { grid-template-columns:repeat(3,minmax(0,1fr)); } }
+.lr10-gallery-section { background:#f4f6f4; }
+.lr10-gallery-grid { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px; }
+.lr10-gallery-item {display:block;position:relative;border-radius:14px;overflow:hidden;background:#dde8dd; min-width:0; }
+.lr10-gallery-item img { width:100%;height:180px;object-fit:cover;display:block;transition:transform .25s ease; }
+.lr10-gallery-item:hover img {transform:scale(1.03);}
+.lr10-gallery-item span { display:block;padding:10px 12px;background:#fff;color:#1e3f20;font-size:.82rem;font-weight:700;min-height:3.2em; }
+.lr10-typed-line {min-height:30px;margin-top:12px;font-size:1.06rem;font-weight:700;color:#1e3f20;}
+@media(min-width:768px) { .lr10-gallery-grid {grid-template-columns:repeat(3,minmax(0,1fr));} .lr10-gallery-item img {height:225px;} }
+@media(max-width:639px) {.lr10-section {padding:40px 18px;} .lr10-route-photo-link {height:190px;} .lr10-gallery-item img {height:140px;} }
+@media(prefers-reduced-motion:reduce) { .lr10-route-photo-link img,.lr10-gallery-item img {transition:none;} }
+/* Dark palette overrides for the Lab 10 components */
+html[data-theme="dark"] .lr10-routes-section {background:#132f27;}
+html[data-theme="dark"] .lr10-gallery-section {background:#10291f;}
+html[data-theme="dark"] .lr10-heading,html[data-theme="dark"] .lr10-all-routes a {color:#e8f4e8;}
+html[data-theme="dark"] .lr10-intro {color:#c0d6c4;}
+html[data-theme="dark"] .lr10-route-card {background:#204338;border-color:#426658;box-shadow:none;}
+html[data-theme="dark"] .lr10-card-content h3,html[data-theme="dark"] .lr10-route-price {color:#ecf6e9;}
+html[data-theme="dark"] .lr10-route-meta {color:#c1d5c7;}
+html[data-theme="dark"] .lr10-route-cta {background:#a94f24;color:#fff;}
+html[data-theme="dark"] .lr10-gallery-item span {background:#204338;color:#ebf7ee;}
+html[data-theme="dark"] .lr10-swiper-prev,html[data-theme="dark"] .lr10-swiper-next {background:#224338;color:#f3f5f0;border-color:#648b73;}
+html[data-theme="dark"] .lr10-typed-line {color:#f0e7ce;}
