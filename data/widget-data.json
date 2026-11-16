@@ -1,0 +1,71 @@
+{
+  "currency": "UAH",
+  "routes": [
+    {
+      "id": "pip-ivan",
+      "name": "Похід на Піп Іван та Чорногірський хребет",
+      "price": 2400,
+      "standardDays": 3
+    },
+    {
+      "id": "nesamovute",
+      "name": "Озеро Несамовите",
+      "price": 1800,
+      "standardDays": 1
+    },
+    {
+      "id": "dovbush",
+      "name": "Скелі Довбуша",
+      "price": 1300,
+      "standardDays": 1
+    },
+    {
+      "id": "synevyr",
+      "name": "Лісовими стежками до Синевиру",
+      "price": 1600,
+      "standardDays": 1
+    },
+    {
+      "id": "bordzava",
+      "name": "Полонини Боржави з наметами",
+      "price": 2100,
+      "standardDays": 2
+    },
+    {
+      "id": "hoverla",
+      "name": "Сходження на Говерлу",
+      "price": 1900,
+      "standardDays": 1
+    }
+  ],
+  "rules": {
+    "guests": {
+      "min": 1,
+      "max": 10
+    },
+    "days": {
+      "min": 1,
+      "max": 7
+    },
+    "foodPerPersonPerDay": 220,
+    "gearPerDay": 150,
+    "groupDiscount": {
+      "fromGuests": 6,
+      "percent": 5
+    },
+    "transport": {
+      "own": {
+        "label": "Власний транспорт",
+        "price": 0
+      },
+      "ivano": {
+        "label": "Трансфер з Івано-Франківська",
+        "price": 300
+      },
+      "lviv": {
+        "label": "Трансфер зі Львова",
+        "price": 600
+      }
+    }
+  }
+}

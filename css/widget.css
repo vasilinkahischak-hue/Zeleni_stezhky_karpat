@@ -1,0 +1,67 @@
+/* ЛР №11. Tailwind-утиліти для секції + локальні класи віджета; збережена дизайн-система сайту. */
+.lr11-widget-section {background:#f4f6f4;color:#213c2a;}
+.lr11-widget-intro {max-width:760px;margin:0 0 30px;}
+.lr11-widget-intro h2 {margin:8px 0 12px;line-height:1.12;}
+.lr11-widget-intro > p:last-child {color:#526b56;font-size:1rem;line-height:1.7;}
+.lr11-kicker {color:#b85b2b;font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:800;}
+.lr11-widget-layout {display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start;}
+.lr11-form,.lr11-result {min-width:0;border-radius:20px;border:1px solid #d8e2d7;box-shadow:0 10px 28px rgba(18,45,28,.055);}
+.lr11-form {background:#fff;padding:24px;}
+.lr11-form fieldset {padding:0;margin:0;border:0;min-width:0;}
+.lr11-form fieldset:disabled {opacity:.6;}
+.lr11-field {margin-bottom:20px;min-width:0;}
+.lr11-field label {display:block;font-weight:700;color:#1e3f20;margin-bottom:8px;font-size:14px;}
+.lr11-field input,.lr11-field select {width:100%;display:block;min-width:0;min-height:48px;border-radius:10px;border:1.5px solid #b8cabc;background:#fff;color:#233c2b;padding:11px 14px;font-size:15px;font-family:inherit;}
+.lr11-field input:focus-visible,.lr11-field select:focus-visible {outline:3px solid rgba(200,100,50,.28);border-color:#c86432;outline-offset:1px;}
+.lr11-field input.lr11-invalid,.lr11-field select.lr11-invalid {background:#fff2ee;border-color:#c33e32;outline-color:#f9b4a5;}
+.lr11-hint {color:#56725e;font-size:12px;line-height:1.5;margin:6px 0 0;}
+.lr11-error {font-size:12px;line-height:1.5;color:#ad2d27;font-weight:600;margin:6px 0 0;min-height:0;}
+.lr11-error:empty {display:none;}
+.lr11-error.lr11-info {color:#46694c;font-weight:500;}
+.lr11-two-columns {display:grid;grid-template-columns:1fr;gap:0;}
+.lr11-extras {display:grid;grid-template-columns:1fr;gap:12px;margin:10px 0;}
+.lr11-check {display:flex;align-items:flex-start;gap:12px;padding:15px;border:1px solid #d8e2d7;border-radius:12px;background:#f7faf7;cursor:pointer;}
+.lr11-check:has(input:checked) {border-color:#c86432;background:#fff3ec;}
+.lr11-check input {width:19px;height:19px;flex:0 0 19px;accent-color:#c86432;margin:2px 0 0;}
+.lr11-check span {display:grid;gap:4px;}
+.lr11-check strong {font-size:14px;line-height:1.25;}
+.lr11-check small {color:#56725e;font-size:12px;}
+.lr11-disclaimer {margin-top:18px;}
+.lr11-notice {padding:14px;border-radius:10px;background:#fff3e5;border:1px solid #e4bc93;color:#6f4525;margin-bottom:15px;font-size:14px;}
+.lr11-notice[hidden],.lr11-retry[hidden] {display:none;}
+.lr11-retry {margin-bottom:15px;cursor:pointer;padding:8px 18px;border:1px solid #c86432;border-radius:10px;color:#b45328;font-weight:700;}
+.lr11-result {background:#1e3f20;color:#f6faf4;padding:28px;}
+.lr11-result-tag {display:inline-block;font-size:12px;font-weight:700;letter-spacing:.08em;color:#c7d8c5;text-transform:uppercase;}
+.lr11-result-header h3 {font-family:Newsreader,Georgia,serif;font-size:26px;line-height:1.15;margin:15px 0 8px;overflow-wrap:anywhere;}
+.lr11-result-header p {color:#d3e6d4;font-size:14px;line-height:1.5;}
+.lr11-breakdown {display:grid;grid-template-columns:minmax(0,1fr) auto;gap:14px 10px;margin:28px 0;padding:22px 0;border-top:1px solid #52705b;border-bottom:1px solid #52705b;font-size:14px;line-height:1.35;}
+.lr11-breakdown dt {color:#e0eee2;overflow-wrap:anywhere;}
+.lr11-breakdown dd {text-align:right;font-weight:700;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;}
+.lr11-discount {color:#eab77c;}
+.lr11-total-line {display:flex;align-items:flex-end;gap:8px;justify-content:space-between;flex-wrap:wrap;}
+.lr11-total-line span {font-size:14px;color:#c7d8c5;}
+.lr11-total-line output {font-family:Newsreader,Georgia,serif;font-size:clamp(28px,5vw,40px);font-weight:700;line-height:1.2;overflow-wrap:anywhere;}
+.lr11-result-note {color:#d3e6d4;line-height:1.6;font-size:13px;margin:14px 0 20px;}
+.lr11-booking-link {display:flex;align-items:center;justify-content:center;gap:12px;border-radius:999px;background:#c86432;color:white;text-decoration:none;font-weight:700;min-height:48px;padding:12px 18px;text-align:center;}
+.lr11-booking-link:hover {background:#ac4a23;}
+.lr11-booking-link[aria-disabled="true"] {opacity:.5;cursor:not-allowed;pointer-events:none;}
+.lr11-booking-link:focus-visible {outline:3px solid #fff;outline-offset:3px;}
+@media(min-width:640px){.lr11-two-columns{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;}.lr11-extras{grid-template-columns:repeat(2,minmax(0,1fr));}}
+@media(min-width:1024px){.lr11-widget-layout{grid-template-columns:minmax(0,1.15fr) minmax(310px,.85fr);gap:28px;}.lr11-result{position:sticky;top:115px;}}
+@media(max-width:359px){.lr11-form,.lr11-result{padding:16px;}.lr11-widget-intro h2{font-size:28px;}}
+/* Успадковуємо темно-зелену палітру ЛР №10, зберігаючи контрастність повідомлень. */
+html[data-theme="dark"] .lr11-widget-section {background:#10291f;color:#e8f3e9;}
+html[data-theme="dark"] .lr11-widget-intro > p:last-child {color:#c7dbcd;}
+html[data-theme="dark"] .lr11-form {background:#1c3c31;border-color:#56715f;color:#ebf4eb;}
+html[data-theme="dark"] .lr11-field label {color:#e8f3e9;}
+html[data-theme="dark"] .lr11-hint,html[data-theme="dark"] .lr11-check small {color:#c5dacc;}
+html[data-theme="dark"] .lr11-field input,html[data-theme="dark"] .lr11-field select {background:#173427;color:#e8f3e9;border-color:#688674;}
+html[data-theme="dark"] .lr11-field input.lr11-invalid,html[data-theme="dark"] .lr11-field select.lr11-invalid {border-color:#ffa18a;background:#512c29;}
+html[data-theme="dark"] .lr11-error {color:#ffb1a7;}
+html[data-theme="dark"] .lr11-error.lr11-info {color:#b4d7bd;}
+html[data-theme="dark"] .lr11-check {background:#214334;border-color:#58745f;}
+html[data-theme="dark"] .lr11-check:has(input:checked) {background:#3b4031;border-color:#eaa776;}
+html[data-theme="dark"] .lr11-result {background:#16362a;border-color:#56715f;}
+html[data-theme="dark"] .lr11-notice {background:#4b352a;color:#fff0df;border-color:#c88b68;}
+html[data-theme="dark"] .lr11-retry {color:#f5b78e;}
+@media(prefers-reduced-motion:reduce){.lr11-booking-link {transition:none;}}

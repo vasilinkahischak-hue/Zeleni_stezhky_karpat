@@ -113,3 +113,145 @@ html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view]
   outline: 3px solid #f5a270;
   outline-offset: -3px;
 }
+
+/* ЛР №11: мобільний хедер — компактний логотип, кнопка та меню без накладання. */
+.header-mobile-booking { display: none; }
+@media (max-width: 767px) {
+  header .header-brand-group { gap: 6px; flex: 0 0 auto; }
+  header .header-brand-group > a > span { display: none; }
+  header .header-brand-group > a > img { height: 42px; width: auto; }
+  header .theme-switch { width: 38px; height: 38px; min-width: 38px; }
+  header .theme-switch-icon { width: 19px; height: 19px; }
+  header > div { gap: 7px; }
+  header label[for="nav-toggle"] { width: 38px; height: 38px; flex: 0 0 38px; }
+  .header-mobile-booking {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
+    padding: 9px 11px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    background-color: #1e3f20;
+    text-decoration: none;
+    min-height: 38px;
+    white-space: nowrap;
+  }
+  .header-mobile-booking:focus-visible { outline: 3px solid #c86432; outline-offset: 2px; }
+  html[data-theme="dark"] .header-mobile-booking { background-color: #315b43; color: #fff; }
+}
+@media (max-width: 359px) {
+  header .header-brand-group > a > img { height: 36px; }
+  header .theme-switch { width: 35px; height: 35px; min-width: 35px; }
+  header label[for="nav-toggle"] { width: 35px; height: 35px; flex-basis: 35px; }
+  .header-mobile-booking { font-size: 11px; padding: 8px 9px; }
+}
+
+/* ЛР №11 — виправлення дублювання кнопки бронювання */
+
+@media (max-width: 767px) {
+    /* Приховуємо десктопну кнопку на телефоні */
+    header a.hidden[href="booking.html"] {
+        display: none !important;
+    }
+
+    /* Залишаємо компактну мобільну кнопку */
+    header .header-mobile-booking {
+        display: inline-flex;
+    }
+}
+
+/* ЛР №11 — розташування мобільного меню */
+
+@media (max-width: 767px) {
+
+    header > div {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+
+    /* Логотип і перемикач теми залишаються зліва */
+    header .header-brand-group {
+        margin-right: auto;
+        flex-shrink: 0;
+    }
+
+    /* Бургер і хрестик перед кнопкою бронювання */
+    header label[for="nav-toggle"] {
+        order: 2;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    /* Кнопка бронювання справа */
+    header .header-mobile-booking {
+        order: 3;
+        margin: 0;
+        flex-shrink: 0;
+    }
+
+    /* Десктопну кнопку ховаємо */
+    header a.hidden[href="booking.html"] {
+        display: none !important;
+    }
+}
+
+/* ЛР №11 — оформлення відкритого бургер-меню */
+
+@media (max-width: 767px) {
+
+    #main-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        z-index: 60;
+
+        background-color: #ffffff;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Темна тема */
+    html[data-theme="dark"] #main-menu {
+        background-color: #16362A !important;
+    }
+
+    /* Звичайні пункти меню */
+    #main-menu li > a {
+        color: #1E3F20 !important;
+        background-color: transparent !important;
+        border-radius: 6px;
+    }
+
+    html[data-theme="dark"] #main-menu li > a {
+        color: #F3F6ED !important;
+    }
+
+    /* Активний пункт і наведення */
+    #main-menu li > a:hover,
+    #main-menu li > a:focus-visible,
+    #main-menu li > a[aria-current="page"] {
+        color: #1E3F20 !important;
+        background-color: #E1ECE2 !important;
+        border-left-color: #C86432;
+    }
+
+    /* Активний пункт у темній темі */
+    html[data-theme="dark"] #main-menu li > a:hover,
+    html[data-theme="dark"] #main-menu li > a:focus-visible,
+    html[data-theme="dark"] #main-menu li > a[aria-current="page"] {
+        color: #FFFFFF !important;
+        background-color: #315B43 !important;
+        border-left-color: #C86432;
+    }
+
+    /* Прибираємо дубль кнопки з випадаючого меню */
+    #main-menu > div.mt-4 > a[href="booking.html"] {
+        display: none !important;
+    }
+}
