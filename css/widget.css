@@ -1,4 +1,4 @@
-/* ЛР №11. Tailwind-утиліти для секції + локальні класи віджета; збережена дизайн-система сайту. */
+/* . Tailwind-утиліти для секції + локальні класи віджета; збережена дизайн-система сайту. */
 .lr11-widget-section {background:#f4f6f4;color:#213c2a;}
 .lr11-widget-intro {max-width:760px;margin:0 0 30px;}
 .lr11-widget-intro h2 {margin:8px 0 12px;line-height:1.12;}
@@ -49,7 +49,7 @@
 @media(min-width:640px){.lr11-two-columns{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;}.lr11-extras{grid-template-columns:repeat(2,minmax(0,1fr));}}
 @media(min-width:1024px){.lr11-widget-layout{grid-template-columns:minmax(0,1.15fr) minmax(310px,.85fr);gap:28px;}.lr11-result{position:sticky;top:115px;}}
 @media(max-width:359px){.lr11-form,.lr11-result{padding:16px;}.lr11-widget-intro h2{font-size:28px;}}
-/* Успадковуємо темно-зелену палітру ЛР №10, зберігаючи контрастність повідомлень. */
+/* Успадковуємо темно-зелену палітру , зберігаючи контрастність повідомлень. */
 html[data-theme="dark"] .lr11-widget-section {background:#10291f;color:#e8f3e9;}
 html[data-theme="dark"] .lr11-widget-intro > p:last-child {color:#c7dbcd;}
 html[data-theme="dark"] .lr11-form {background:#1c3c31;border-color:#56715f;color:#ebf4eb;}
@@ -65,3 +65,7 @@ html[data-theme="dark"] .lr11-result {background:#16362a;border-color:#56715f;}
 html[data-theme="dark"] .lr11-notice {background:#4b352a;color:#fff0df;border-color:#c88b68;}
 html[data-theme="dark"] .lr11-retry {color:#f5b78e;}
 @media(prefers-reduced-motion:reduce){.lr11-booking-link {transition:none;}}
+
+/* WCAG AA: 4.5:1 minimum for white label text. Original orange was 3.94:1. */
+.lr11-booking-link {background:#a94f24;}
+.lr11-booking-link:hover {background:#923f1a;}

@@ -7,11 +7,11 @@
             Скелі Довбуша — Зелені стежки Карпат
         </title>
         <meta content="Скелі Довбуша: програма за днями, що входить у вартість, місцевий гід та бронювання." name="description"/>
-        <link href="assets/images/logo_w.svg" rel="icon" type="image/svg+xml"/>
+        <link href="assets/images/favicon.png" rel="icon" type="image/png"/>
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
         <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-        <script>try{if(localStorage.getItem('zsk-theme')==='dark'){document.documentElement.dataset.theme='dark'}}catch(e){}</script>
+        <script>!function(){let t;try{t=localStorage.getItem('zsk-theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}();</script>
         <link href="css/tailwind-built.css" rel="stylesheet"/>
         <link href="css/style.css" rel="stylesheet"/>
         <link href="css/theme.css" rel="stylesheet"/>
@@ -21,7 +21,9 @@
         </script>
         <meta content="#1E3F20" name="theme-color"/>
         <script defer src="js/theme.js"></script>
-    </head>
+        <link rel="stylesheet" href="css/release.css"/>
+    <script defer src="js/phone.js"></script>
+</head>
     <body class="bg-background font-main text-base text-neutral-dark antialiased">
         <a class="absolute -top-12 left-0 z-[200] bg-accent-hover px-4 py-2 text-white transition-[top] focus:top-0" href="#main-content" title="Перейти до основного вмісту">
             Перейти до основного вмісту
@@ -35,7 +37,7 @@
                         <svg class="theme-switch-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
                     </button>
                     <a class="flex items-center gap-2.5 text-base font-semibold text-primary transition-opacity hover:opacity-80 md:justify-self-start md:text-lg" href="index.html#hero" title="Зелені стежки Карпат">
-                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w.svg" data-theme-dark-src="assets/images/Logo_header_dark.svg" src="assets/images/logo_w.svg"/>
+                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w-display.webp" data-theme-dark-src="assets/images/Logo_header_dark-display.webp" src="assets/images/logo_w-display.webp" width="64" height="64"/>
                     <span class="leading-tight">
                         Зелені стежки Карпат
                     </span>
@@ -165,7 +167,7 @@
                     <figure>
                         <div class="grid gap-3 md:h-[380px] md:grid-cols-gallery">
                             <div class="relative min-h-0">
-                                <img alt="Скелі Довбуша серед лісу" class="aspect-[16/10] size-full rounded-2xl object-cover md:aspect-auto" src="assets/images/dobush-rocks-panoram.png"/>
+                                <img fetchpriority="high" decoding="async" width="924" height="400" alt="Скелі Довбуша серед лісу" class="aspect-[16/10] size-full rounded-2xl object-cover md:aspect-auto" src="assets/images/dobush-rocks-panoram.png" srcset="assets/images/dobush-rocks-panoram.webp 1x"/>
                                 <p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-line bg-white text-neutral-dark absolute bottom-4 left-4">
                                     <svg aria-hidden="true" class="" fill="none" focusable="false" height="12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="12">
                                         <path d="M12 21s7-6 7-11a7 7 0 0 0-14 0c0 5 7 11 7 11z">
@@ -177,7 +179,7 @@
                                 </p>
                             </div>
                             <div class="grid min-h-0 grid-cols-2 gap-3 md:grid-cols-1 md:grid-rows-2">
-                                <img alt="Лісова стежка до Скель Довбуша" class="aspect-[4/3] size-full rounded-2xl object-cover md:aspect-auto" decoding="async" loading="lazy" src="assets/images/dovbush-rocks-route.png"/>
+                                <img width="344" height="194" alt="Лісова стежка до Скель Довбуша" class="aspect-[4/3] size-full rounded-2xl object-cover md:aspect-auto" decoding="async" loading="lazy" src="assets/images/dovbush-rocks-route.png" srcset="assets/images/dovbush-rocks-route.webp 1x"/>
                                 <img alt="Скельні масиви в осінньому лісі" class="aspect-[4/3] size-full rounded-2xl object-cover md:aspect-auto" decoding="async" loading="lazy" src="assets/images/dovbush-rocks.jpg"/>
                             </div>
                         </div>
@@ -361,7 +363,7 @@
                                             <span aria-hidden="true">
                                                 ТМ
                                             </span>
-                                            <img alt="" class="absolute inset-0 size-full object-cover" src="assets/images/guide-taras.png"/>
+                                            <img loading="lazy" decoding="async" width="112" height="128" alt="" class="absolute inset-0 size-full object-cover" src="assets/images/guide-taras.png" srcset="assets/images/guide-taras.webp 1x"/>
                                         </span>
                                         <div>
                                             <p class="font-heading font-semibold leading-snug text-primary">
@@ -502,7 +504,7 @@
                     </p>
                     <div class="grid gap-8 md:grid-cols-2">
                         <article class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-                            <img alt="Озеро Синевир серед лісу" class="h-card-img w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/synevyr.jpg"/>
+                            <img width="1163" height="610" alt="Озеро Синевир серед лісу" class="h-card-img w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/synevyr.jpg" srcset="assets/images/synevyr.webp 1x"/>
                             <div class="flex grow flex-col gap-2">
                                 <h3 class="font-heading text-lg font-semibold text-neutral-dark">
                                     Озеро Синевир
@@ -527,7 +529,7 @@
                             </div>
                         </article>
                         <article class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0">
-                            <img alt="Вид на обсерваторію гори Піп Іван" class="h-card-img w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/pip-ivan.jpg"/>
+                            <img width="800" height="600" alt="Вид на обсерваторію гори Піп Іван" class="h-card-img w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/pip-ivan.jpg" srcset="assets/images/pip-ivan.webp 1x"/>
                             <div class="flex grow flex-col gap-2">
                                 <h3 class="font-heading text-lg font-semibold text-neutral-dark">
                                     Похід на Піп Іван
@@ -562,7 +564,7 @@
             <div class="mx-auto max-w-container">
                 <div class="mb-8 grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-footer">
                     <a class="flex items-center gap-4 md:col-span-2 lg:col-span-1" href="index.html#hero" title="Еко-туризм та піші маршрути Карпатами">
-                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g.svg" data-theme-dark-src="assets/images/Logo_footer_dark.svg" src="assets/images/logo_g.svg"/>
+                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g-display.webp" data-theme-dark-src="assets/images/Logo_footer_dark-display.webp" src="assets/images/logo_g-display.webp" width="64" height="64"/>
                         <span class="max-w-40 text-sm">
                             Еко-туризм та піші маршрути Карпатами
                         </span>

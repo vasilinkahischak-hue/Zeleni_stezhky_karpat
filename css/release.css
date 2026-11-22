@@ -1,0 +1,24 @@
+/* Final release: keyboard navigation and country selector retain the existing design tokens. */
+:where(a,button,input,select,textarea,summary,[tabindex]):focus-visible{outline:3px solid #A94F24;outline-offset:3px;}
+.zsk-phone-control{display:flex;gap:8px;min-width:0;align-items:stretch}
+.zsk-phone-country{width:clamp(104px,40%,150px);min-width:0;flex:none;border:1px solid #D4DAD4;border-radius:8px;background:#fff;color:#182218;padding:0 5px;font-size:.8rem;min-height:44px}
+.zsk-phone-control>input{min-width:0;flex:1;width:100%}
+.zsk-tent-choice{margin-top:12px;padding:12px;border:1px solid #D4DAD4;border-radius:10px}
+.zsk-tent-choice[hidden]{display:none!important}
+.zsk-tent-choice label{display:flex;gap:8px;align-items:center;margin-top:8px;font-size:.875rem}
+.zsk-tent-choice input{accent-color:#C86432}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+/* Phone control: visible country code with default +380, without duplicated prefix in the field. */
+.zsk-phone-control{display:flex;align-items:stretch;gap:8px;width:100%;min-width:0}
+.zsk-phone-country{width:clamp(122px,38%,174px);min-width:0;flex:0 0 auto;border:1px solid #cad6cb;border-radius:8px;background:#fff;color:#1e3f20;padding:0 8px;font-size:12px;cursor:pointer}
+.zsk-phone-control>input{width:0;min-width:0;flex:1 1 auto;font-variant-numeric:tabular-nums;letter-spacing:.018em}
+.zsk-tent-extension[hidden],.zsk-tent-option[hidden]{display:none!important}
+.zsk-tent-fieldset{min-width:0;border:0;padding:0;margin:0}
+.zsk-tent-option{display:flex;min-height:44px;align-items:center;gap:10px;padding:10px 12px;margin:8px 0 0;border:1px solid #b9cbbd;border-radius:9px;background:transparent;cursor:pointer;font-size:13px}
+.zsk-tent-option:has(input:checked){border-color:#c86432;background:#fff4ed}
+.zsk-tent-option input{width:17px;height:17px;flex:0 0 17px;accent-color:#c86432}
+html[data-theme="dark"] .zsk-phone-country{background:#1c3c31;color:#eaf5ea;border-color:#678270}
+html[data-theme="dark"] .zsk-tent-option{border-color:#678270;color:#eaf5ea}
+html[data-theme="dark"] .zsk-tent-option:has(input:checked){background:#3b4031;border-color:#eaa776}
+@media(max-width:380px){.zsk-phone-country{width:116px;font-size:11px;padding:0 3px}.zsk-phone-control{gap:6px}}

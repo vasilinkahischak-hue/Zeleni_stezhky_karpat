@@ -36,6 +36,13 @@
   }
 
   apply(current());
+  // Automatic live synchronization unless manually overridden.
+  const preference = window.matchMedia?.('(prefers-color-scheme: dark)');
+  preference?.addEventListener?.('change', event => {
+    let manual = null;
+    try { manual = localStorage.getItem(key); } catch (_) {}
+    if (manual !== 'light' && manual !== 'dark') apply(event.matches ? 'dark' : 'light');
+  });
   toggles.forEach(button => button.addEventListener('click', () => {
     const next = current() === 'dark' ? 'light' : 'dark';
     apply(next);

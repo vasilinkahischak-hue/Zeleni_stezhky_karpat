@@ -7,21 +7,17 @@
             Зелені стежки Карпат — еко-маршрути Карпатами
         </title>
         <meta content="Тихі еко-маршрути Карпатами з місцевими гідами: чесна вартість і бережливе ставлення до природи." name="description"/>
-        <link href="assets/images/logo_w.svg" rel="icon" type="image/svg+xml"/>
+        <link href="assets/images/favicon.png" rel="icon" type="image/png"/>
         <!-- Preload основного фонового зображення для покращення LCP. -->
-        <link rel="preload" as="image" href="assets/images/hero-bg.jpg" fetchpriority="high"/>
+        <!-- Responsive LCP hero: exactly one resource is preloaded per viewport. -->
+        <link rel="preload" as="image" href="assets/images/hero-bg-mobile-480.webp" media="(max-width: 480px)" fetchpriority="high"/>
+        <link rel="preload" as="image" href="assets/images/hero-bg-mobile-768.webp" media="(min-width: 481px) and (max-width: 767px)" fetchpriority="high"/>
+        <link rel="preload" as="image" href="assets/images/hero-bg-desktop-1680.webp" media="(min-width: 768px)" fetchpriority="high"/>
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
         <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-        <script>try{if(localStorage.getItem('zsk-theme')==='dark'){document.documentElement.dataset.theme='dark'}}catch(e){}</script>
-        <link href="css/tailwind-built.css" rel="stylesheet"/>
-        <link href="css/style.css" rel="stylesheet"/>
-        <link href="css/feedback.css" rel="stylesheet"/>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.css">
-        <link href="css/theme.css" rel="stylesheet"/>
-        <link href="css/lab10.css" rel="stylesheet"/>
-        <link href="css/widget.css" rel="stylesheet"/>
+        <script>!function(){let t;try{t=localStorage.getItem('zsk-theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}();</script>
+        <link rel="stylesheet" href="css/index-bundle.css"/>
         <script defer="" src="js/routes-data.js">
         </script>
         <script defer="" src="js/site.js">
@@ -30,7 +26,8 @@
         <meta content="#1E3F20" name="theme-color"/>
         <script defer src="js/theme.js"></script>
         <script defer src="js/widget.js"></script>
-    </head>
+    <script defer src="js/phone.js"></script>
+</head>
     <body class="bg-background font-main text-base text-neutral-dark antialiased">
         <a class="absolute -top-12 left-0 z-[200] bg-accent-hover px-4 py-2 text-white transition-[top] focus:top-0" href="#main-content" title="Перейти до основного вмісту">
             Перейти до основного вмісту
@@ -44,7 +41,7 @@
                         <svg class="theme-switch-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
                     </button>
                     <a class="flex items-center gap-2.5 text-base font-semibold text-primary transition-opacity hover:opacity-80 md:justify-self-start md:text-lg" href="index.html#hero" title="Зелені стежки Карпат">
-                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w.svg" data-theme-dark-src="assets/images/Logo_header_dark.svg" src="assets/images/logo_w.svg"/>
+                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w-display.webp" data-theme-dark-src="assets/images/Logo_header_dark-display.webp" src="assets/images/logo_w-display.webp" width="64" height="64"/>
                     <span class="leading-tight">
                         Зелені стежки Карпат
                     </span>
@@ -173,7 +170,7 @@
             </section>
             <!-- END SECTION: Переваги -->
 
-            <!-- BEGIN SECTION: ЛР №11 — Планувальник бюджету мандрівки -->
+            <!-- BEGIN SECTION: Планувальник бюджету мандрівки -->
             <section class="lr11-widget-section scroll-mt-20 px-5 py-10 md:py-16" id="trip-budget" aria-labelledby="trip-budget-title" data-trip-budget data-src="data/widget-data.json">
                 <div class="mx-auto max-w-container">
                     <div class="lr11-widget-intro">
@@ -225,14 +222,14 @@
                             </div>
                             <dl class="lr11-breakdown" data-tb="lines"></dl>
                             <div class="lr11-total-line"><span>Загальний бюджет</span><output data-tb="total" aria-live="polite">—</output></div>
-                            <p class="lr11-result-note" data-tb="note" role="status" aria-live="polite">Вартість орієнтовна. Бронювання та оплата тут не здійснюються.</p>
+                            <p class="lr11-result-note" data-tb="note" role="status" aria-live="polite">Орієнтовний бюджет подорожі. Точну вартість і наявність місць підтверджує організатор.</p>
                             <a class="lr11-booking-link" href="booking.html" data-tb="booking-link">Перейти до бронювання <span aria-hidden="true">→</span></a>
                         </aside>
                     </div>
                 </div>
             </section>
-            <!-- END SECTION: ЛР №11 — Планувальник бюджету мандрівки -->
-            <!-- BEGIN SECTION: Слайдер шести маршрутів — ЛР №10 -->
+            <!-- END SECTION: Планувальник бюджету мандрівки -->
+            <!-- BEGIN SECTION: Слайдер шести маршрутів — -->
 <section aria-labelledby="routes-title" class="lr10-section lr10-routes-section scroll-mt-20" id="routes">
   <div class="lr10-container">
     <h2 id="routes-title" class="lr10-heading">Знайдіть свою стежку</h2>
@@ -242,7 +239,7 @@
                     <div class="swiper-slide">
                         <article class="lr10-route-card">
                             <a class="lr10-route-photo-link" href="route_pip_ivan.html" aria-label="Відкрити маршрут: Похід на Піп Іван та Чорногірський хребет">
-                                <img src="assets/images/pip-ivan.jpg" alt="Похід на Піп Іван та Чорногірський хребет — пейзаж Карпат" loading="lazy" decoding="async">
+                                <img width="800" height="600" src="assets/images/pip-ivan.jpg" srcset="assets/images/pip-ivan.webp 1x" alt="Похід на Піп Іван та Чорногірський хребет — пейзаж Карпат" loading="lazy" decoding="async">
                             </a>
                             <div class="lr10-card-content">
                                 <h3>Похід на Піп Іван та Чорногірський хребет</h3>
@@ -256,7 +253,7 @@
                     <div class="swiper-slide">
                         <article class="lr10-route-card">
                             <a class="lr10-route-photo-link" href="route_nesamovute.html" aria-label="Відкрити маршрут: Озеро Несамовите">
-                                <img src="assets/images/nesamovute.png" alt="Озеро Несамовите — пейзаж Карпат" loading="lazy" decoding="async">
+                                <img width="924" height="400" src="assets/images/nesamovute.png" srcset="assets/images/nesamovute.webp 1x" alt="Озеро Несамовите — пейзаж Карпат" loading="lazy" decoding="async">
                             </a>
                             <div class="lr10-card-content">
                                 <h3>Озеро Несамовите</h3>
@@ -284,7 +281,7 @@
                     <div class="swiper-slide">
                         <article class="lr10-route-card">
                             <a class="lr10-route-photo-link" href="route_synevyr.html" aria-label="Відкрити маршрут: Лісовими стежками до Синевиру">
-                                <img src="assets/images/synevyr.jpg" alt="Лісовими стежками до Синевиру — пейзаж Карпат" loading="lazy" decoding="async">
+                                <img width="1163" height="610" src="assets/images/synevyr.jpg" srcset="assets/images/synevyr.webp 1x" alt="Лісовими стежками до Синевиру — пейзаж Карпат" loading="lazy" decoding="async">
                             </a>
                             <div class="lr10-card-content">
                                 <h3>Лісовими стежками до Синевиру</h3>
@@ -298,7 +295,7 @@
                     <div class="swiper-slide">
                         <article class="lr10-route-card">
                             <a class="lr10-route-photo-link" href="route_bordzava.html" aria-label="Відкрити маршрут: Полонини Боржави з наметами">
-                                <img src="assets/images/bordzava.png" alt="Полонини Боржави з наметами — пейзаж Карпат" loading="lazy" decoding="async">
+                                <img width="300" height="200" src="assets/images/bordzava.png" srcset="assets/images/bordzava.webp 1x" alt="Полонини Боржави з наметами — пейзаж Карпат" loading="lazy" decoding="async">
                             </a>
                             <div class="lr10-card-content">
                                 <h3>Полонини Боржави з наметами</h3>
@@ -312,7 +309,7 @@
                     <div class="swiper-slide">
                         <article class="lr10-route-card">
                             <a class="lr10-route-photo-link" href="route_hoverla.html" aria-label="Відкрити маршрут: Сходження на Говерлу">
-                                <img src="assets/images/hoverla.jpg" alt="Сходження на Говерлу — пейзаж Карпат" loading="lazy" decoding="async">
+                                <img width="900" height="506" src="assets/images/hoverla.jpg" srcset="assets/images/hoverla.webp 1x" alt="Сходження на Говерлу — пейзаж Карпат" loading="lazy" decoding="async">
                             </a>
                             <div class="lr10-card-content">
                                 <h3>Сходження на Говерлу</h3>
@@ -332,19 +329,19 @@
     <p class="lr10-all-routes"><a href="routes.html">Переглянути всі маршрути в каталозі</a></p>
   </div>
 </section>
-<!-- END SECTION: Слайдер маршрутів — ЛР №10 -->
+<!-- END SECTION: Слайдер маршрутів — -->
             
-<!-- BEGIN SECTION: Галерея Fancybox — ЛР №10 -->
+<!-- BEGIN SECTION: Галерея Fancybox — -->
 <section class="lr10-section lr10-gallery-section scroll-mt-20" id="gallery" aria-labelledby="gallery-title">
   <div class="lr10-container">
     <h2 id="gallery-title" class="lr10-heading">Карпати в об'єктиві</h2>
     <p class="lr10-intro">Шість краєвидів з наших маршрутів. Натисніть на фото, щоб переглянути його на весь екран.</p>
     <div class="lr10-gallery-grid"><a class="lr10-gallery-item" href="assets/images/pip-ivan.jpg" data-fancybox="carpathian-gallery" data-caption="Похід на Піп Іван та Чорногірський хребет">
-      <img src="assets/images/pip-ivan.jpg" alt="Похід на Піп Іван та Чорногірський хребет" loading="lazy" decoding="async">
+      <img width="800" height="600" src="assets/images/pip-ivan.jpg" srcset="assets/images/pip-ivan.webp 1x" alt="Похід на Піп Іван та Чорногірський хребет" loading="lazy" decoding="async">
       <span>Похід на Піп Іван та Чорногірський хребет</span>
     </a>
 <a class="lr10-gallery-item" href="assets/images/nesamovute.png" data-fancybox="carpathian-gallery" data-caption="Озеро Несамовите">
-      <img src="assets/images/nesamovute.png" alt="Озеро Несамовите" loading="lazy" decoding="async">
+      <img width="924" height="400" src="assets/images/nesamovute.png" srcset="assets/images/nesamovute.webp 1x" alt="Озеро Несамовите" loading="lazy" decoding="async">
       <span>Озеро Несамовите</span>
     </a>
 <a class="lr10-gallery-item" href="assets/images/dovbush-rocks.jpg" data-fancybox="carpathian-gallery" data-caption="Скелі Довбуша">
@@ -352,22 +349,22 @@
       <span>Скелі Довбуша</span>
     </a>
 <a class="lr10-gallery-item" href="assets/images/synevyr.jpg" data-fancybox="carpathian-gallery" data-caption="Лісовими стежками до Синевиру">
-      <img src="assets/images/synevyr.jpg" alt="Лісовими стежками до Синевиру" loading="lazy" decoding="async">
+      <img width="1163" height="610" src="assets/images/synevyr.jpg" srcset="assets/images/synevyr.webp 1x" alt="Лісовими стежками до Синевиру" loading="lazy" decoding="async">
       <span>Лісовими стежками до Синевиру</span>
     </a>
 <a class="lr10-gallery-item" href="assets/images/bordzava.png" data-fancybox="carpathian-gallery" data-caption="Полонини Боржави з наметами">
-      <img src="assets/images/bordzava.png" alt="Полонини Боржави з наметами" loading="lazy" decoding="async">
+      <img width="300" height="200" src="assets/images/bordzava.png" srcset="assets/images/bordzava.webp 1x" alt="Полонини Боржави з наметами" loading="lazy" decoding="async">
       <span>Полонини Боржави з наметами</span>
     </a>
 <a class="lr10-gallery-item" href="assets/images/hoverla.jpg" data-fancybox="carpathian-gallery" data-caption="Сходження на Говерлу">
-      <img src="assets/images/hoverla.jpg" alt="Сходження на Говерлу" loading="lazy" decoding="async">
+      <img width="900" height="506" src="assets/images/hoverla.jpg" srcset="assets/images/hoverla.webp 1x" alt="Сходження на Говерлу" loading="lazy" decoding="async">
       <span>Сходження на Говерлу</span>
     </a></div>
   </div>
 </section>
-<!-- END SECTION: Галерея Fancybox — ЛР №10 -->
+<!-- END SECTION: Галерея Fancybox — -->
 
-            <!-- ЛР №7: адаптивне відео про Карпати (YouTube Embed) -->
+            <!-- адаптивне відео про Карпати (YouTube Embed) -->
             <!-- BEGIN SECTION: Відчуйте атмосферу Карпат -->
             <section aria-labelledby="video-title" class="scroll-mt-20 bg-background px-5 py-10 md:py-16" id="video">
                 <div class="mx-auto max-w-container">
@@ -380,7 +377,7 @@
                         </p>
                     </div>
                     <figure class="mx-auto max-w-4xl">
-                        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" class="media-frame media-frame--video block aspect-video w-full rounded-2xl" width="960" height="540" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/5-oLFPq52k0" title="Відео про атмосферу Карпат — Зелені стежки Карпат">
+                        <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" class="media-frame media-frame--video block aspect-video w-full rounded-2xl" width="960" height="540" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" data-zsk-deferred-src="https://www.youtube-nocookie.com/embed/5-oLFPq52k0" title="Відео про атмосферу Карпат — Зелені стежки Карпат">
                         </iframe>
                         <figcaption class="mt-3 text-center text-xs text-secondary">
                             Якщо відео не відображається,
@@ -413,7 +410,7 @@
                                 Що таке Eco-Impact Score?
                             </summary>
                             <p class="mt-3 text-sm text-secondary">
-                                У прототипі це орієнтовний показник екологічності походу. Він не замінює незалежну екологічну сертифікацію.
+                                Це орієнтовний показник екологічності походу. Він не замінює незалежну екологічну сертифікацію.
                             </p>
                         </details>
                         <details class="group rounded-xl border border-line bg-background px-5 py-4">
@@ -421,7 +418,7 @@
                                 Чи підтверджується бронювання одразу?
                             </summary>
                             <p class="mt-3 text-sm text-secondary">
-                                Ні. Сайт є навчальним прототипом: калькулятор показує приблизну ціну, але не приймає оплату та не надсилає реальні заявки.
+                                Ні. Калькулятор допомагає спланувати приблизний бюджет, але оплата та надсилання заявки на сайті недоступні.
                             </p>
                         </details>
                     </div>
@@ -429,19 +426,19 @@
             </section>
             <!-- END SECTION: Часті запитання -->
 
-            <!-- BEGIN SECTION: ЛР №9 — адаптивна форма зворотного зв'язку -->
+            <!-- BEGIN SECTION: адаптивна форма зворотного зв'язку -->
             <section id="feedback" aria-labelledby="feedback-title" class="feedback-section scroll-mt-20 px-5 py-10 md:py-16">
                 <div class="feedback-layout mx-auto max-w-container grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div class="feedback-intro">
                         <h2 id="feedback-title" class="font-heading text-h2 font-semibold text-primary">Маєте запитання про мандрівку?</h2>
-                        <p class="feedback-lead">Залиште повідомлення, щоб перевірити роботу нашої навчальної форми. Для реального зв'язку скористайтеся контактами внизу сторінки.</p>
+                        <p class="feedback-lead">Напишіть нам своє запитання. Форма перевіряє правильність введення; для зв’язку з організатором скористайтеся контактами внизу сторінки.</p>
                         <ul class="feedback-points" aria-label="Переваги форми">
                             <li><span aria-hidden="true">✓</span> Перевірка полів під час введення</li>
                             <li><span aria-hidden="true">✓</span> Формат телефону +380XXXXXXXXX</li>
                             <li><span aria-hidden="true">✓</span> Зрозумілі підказки та повідомлення</li>
                             <li><span aria-hidden="true">✓</span> Зручність на мобільному та з клавіатури</li>
                         </ul>
-                        <p class="feedback-demo-note">Демонстраційна форма: повідомлення не надсилається на сервер, а контактні дані ніде не зберігаються.</p>
+                        <p class="feedback-demo-note">Маєте запитання про маршрут чи спорядження? Перевірте свій запит або скористайтеся контактами нижче.</p>
                     </div>
                     <div class="feedback-card">
                         <h3 class="feedback-card-title">Написати нам</h3>
@@ -463,8 +460,8 @@
                                 </div>
                                 <div class="feedback-field" data-field="phone">
                                     <label for="phone">Номер телефону <span class="feedback-required" aria-label="обов'язкове поле">*</span></label>
-                                    <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" maxlength="20" placeholder="+380501234567" aria-describedby="phoneHint phoneError phoneSuccess" aria-invalid="false" />
-                                    <span id="phoneHint" class="feedback-hint">+380 і 9 цифр, без пробілів.</span>
+                                    <input id="phone" name="phone" type="tel" required autocomplete="tel" inputmode="tel" maxlength="20" placeholder="99 123 45 67" aria-describedby="phoneHint phoneError phoneSuccess" aria-invalid="false" />
+                                    <span id="phoneHint" class="feedback-hint">Код країни обирається автоматично.</span>
                                     <p id="phoneError" class="feedback-error" aria-live="polite" hidden></p>
                                     <p id="phoneSuccess" class="feedback-success" hidden>✓ Коректно</p>
                                 </div>
@@ -488,24 +485,24 @@
                             <div class="feedback-field feedback-consent" data-field="agreement">
                                 <label class="feedback-checkline" for="agreement">
                                     <input id="agreement" name="agreement" type="checkbox" required aria-describedby="agreementError" aria-invalid="false" />
-                                    <span>Я погоджуюся на демонстраційну перевірку введених даних. <span class="feedback-required">*</span></span>
+                                    <span>Я погоджуюся на перевірку введених даних. <span class="feedback-required">*</span></span>
                                 </label>
                                 <p id="agreementError" class="feedback-error" aria-live="polite" hidden></p>
                                 <p id="agreementSuccess" class="feedback-success" hidden>✓ Згоду надано</p>
                             </div>
-                            <button type="submit" class="feedback-submit">Перевірити й надіслати форму <span aria-hidden="true">↗</span></button>
+                            <button type="submit" class="feedback-submit">Перевірити звернення <span aria-hidden="true">↗</span></button>
                             <p id="feedbackStatus" role="status" class="feedback-form-status" aria-live="polite"></p>
                         </form>
                     </div>
                 </div>
             </section>
-            <!-- END SECTION: ЛР №9 — адаптивна форма зворотного зв'язку -->
-            <!-- BEGIN: модальне вікно демонстраційного успіху -->
+            <!-- END SECTION: адаптивна форма зворотного зв'язку -->
+            <!-- BEGIN: модальне вікно результату перевірки -->
             <dialog id="feedbackDialog" class="feedback-dialog" aria-labelledby="feedbackDialogTitle" aria-describedby="feedbackDialogDescription">
                 <div class="feedback-dialog-content">
                     <span class="feedback-dialog-icon" aria-hidden="true">✓</span>
                     <h2 id="feedbackDialogTitle" class="font-heading text-h2 font-semibold text-primary">Перевірку пройдено!</h2>
-                    <p id="feedbackDialogDescription">Усі поля заповнено правильно. Це <strong>імітація успішного надсилання</strong>: дані не відправлено на сервер.</p>
+                    <p id="feedbackDialogDescription">Усі поля заповнено коректно. Для зв’язку з командою використайте контактні дані, зазначені на сайті.</p>
                     <button id="feedbackDialogClose" type="button" class="feedback-submit">Закрити</button>
                 </div>
             </dialog>
@@ -532,7 +529,7 @@
             <div class="mx-auto max-w-container">
                 <div class="mb-8 grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-footer">
                     <a class="flex items-center gap-4 md:col-span-2 lg:col-span-1" href="index.html#hero" title="Еко-туризм та піші маршрути Карпатами">
-                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g.svg" data-theme-dark-src="assets/images/Logo_footer_dark.svg" src="assets/images/logo_g.svg"/>
+                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g-display.webp" data-theme-dark-src="assets/images/Logo_footer_dark-display.webp" src="assets/images/logo_g-display.webp" width="64" height="64"/>
                         <span class="max-w-40 text-sm">
                             Еко-туризм та піші маршрути Карпатами
                         </span>
@@ -584,7 +581,7 @@
                             Карта наближена до української частини Карпат — околиць Ворохти та Чорногори, без сусідніх країн у початковому огляді. Це не адреса офісу чи точка збору.
                         </p>
                     </div>
-                    <iframe allowfullscreen="" class="media-frame media-frame--map block w-full min-h-[360px] rounded-2xl md:min-h-[500px]" width="1200" height="520" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" src="https://www.google.com/maps?q=48.29%2C24.57&amp;z=10&amp;output=embed" title="Інтерактивна карта Google Maps: Українські Карпати">
+                    <iframe allowfullscreen="" class="media-frame media-frame--map block w-full min-h-[360px] rounded-2xl md:min-h-[500px]" width="1200" height="520" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" data-zsk-deferred-src="https://www.google.com/maps?q=48.29%2C24.57&amp;z=10&amp;output=embed" title="Інтерактивна карта Google Maps: Українські Карпати">
                     </iframe>
                     <a class="mt-4 inline-flex min-h-11 items-center rounded-full border border-white px-5 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary focus-visible:outline-2 focus-visible:outline-offset-2" href="https://www.google.com/maps/search/?api=1&amp;query=48.29%2C24.57" rel="noopener noreferrer" target="_blank" title="Відкрити в Google Maps (нова вкладка)">
                         Відкрити в Google Maps
@@ -602,9 +599,6 @@
             </div>
         </footer>
         <!-- END FOOTER -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11.1.14/swiper-bundle.min.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.36/dist/fancybox/fancybox.umd.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js" defer></script>
         <script src="js/plugins.js" defer></script>
     </body>
 </html>

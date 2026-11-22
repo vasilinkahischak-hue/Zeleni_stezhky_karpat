@@ -4,14 +4,14 @@
         <meta charset="utf-8"/>
         <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
         <title>
-            Попередній підсумок — Зелені стежки Карпат
+            Підсумок маршруту — Зелені стежки Карпат
         </title>
-        <meta content="Демонстраційний підсумок вибору екотуру. Жодна реальна оплата чи заявка не створюється." name="description"/>
-        <link href="assets/images/logo_w.svg" rel="icon" type="image/svg+xml"/>
+        <meta content="Підсумок плану подорожі Карпатами: обраний маршрут, тривалість, спорядження та орієнтовна вартість." name="description"/>
+        <link href="assets/images/favicon.png" rel="icon" type="image/png"/>
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
         <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-        <script>try{if(localStorage.getItem('zsk-theme')==='dark'){document.documentElement.dataset.theme='dark'}}catch(e){}</script>
+        <script>!function(){let t;try{t=localStorage.getItem('zsk-theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}();</script>
         <link href="css/tailwind-built.css" rel="stylesheet"/>
         <link href="css/style.css" rel="stylesheet"/>
         <link href="css/theme.css" rel="stylesheet"/>
@@ -21,7 +21,10 @@
         </script>
         <meta content="#1E3F20" name="theme-color"/>
         <script defer src="js/theme.js"></script>
-    </head>
+        <link rel="stylesheet" href="css/release.css"/>
+    <script defer src="js/phone.js"></script>
+    <meta name="robots" content="noindex,follow"/>
+</head>
     <body class="bg-background font-main text-base text-neutral-dark antialiased">
         <a class="absolute -top-12 left-0 z-[200] bg-accent-hover px-4 py-2 text-white transition-[top] focus:top-0" href="#main-content" title="Перейти до основного вмісту">
             Перейти до основного вмісту
@@ -35,7 +38,7 @@
                         <svg class="theme-switch-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
                     </button>
                     <a class="flex items-center gap-2.5 text-base font-semibold text-primary transition-opacity hover:opacity-80 md:justify-self-start md:text-lg" href="index.html#hero" title="Зелені стежки Карпат">
-                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w.svg" data-theme-dark-src="assets/images/Logo_header_dark.svg" src="assets/images/logo_w.svg"/>
+                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w-display.webp" data-theme-dark-src="assets/images/Logo_header_dark-display.webp" src="assets/images/logo_w-display.webp" width="64" height="64"/>
                     <span class="leading-tight">
                         Зелені стежки Карпат
                     </span>
@@ -102,7 +105,7 @@
         <!-- END HEADER -->
         <!-- BEGIN MAIN -->
         <main id="main-content">
-            <!-- BEGIN SECTION: Демонстраційний підсумок маршруту -->
+            <!-- BEGIN SECTION: Підсумок маршруту -->
             <section aria-labelledby="confirm-title" class="px-5 pb-8 pt-10 text-center md:pt-16">
                 <div class="mx-auto max-w-container">
                     <span class="mb-4 inline-grid size-14 place-items-center rounded-full bg-primary text-white ring-8 ring-tint">
@@ -112,17 +115,17 @@
                         </svg>
                     </span>
                     <h1 class="font-heading text-confirm font-semibold text-primary" id="confirm-title">
-                        Демонстраційний підсумок маршруту
+                        Підсумок маршруту
                     </h1>
                     <p class="mx-auto mb-4 mt-2 max-w-[35rem] text-sm text-secondary">
-                        Це попередній розрахунок для навчального прототипу. Реального бронювання, оплати чи надсилання електронного квитка не відбулося.
+                        Усі деталі вашої подорожі в одному місці. Погодьте дату та наявність місць з організатором.
                     </p>
                     <p class="inline-block rounded-full border border-line bg-white px-4 py-1.5 text-2xs">
-                        Статус: заявку не створено · демонстраційний перегляд
+                        Ваш план подорожі сформовано
                     </p>
                 </div>
             </section>
-            <!-- END SECTION: Демонстраційний підсумок маршруту -->
+            <!-- END SECTION: Підсумок маршруту -->
             <!-- BEGIN SECTION: Обраний маршрут -->
             <section aria-label="Деталі бронювання" class="px-5">
                 <div class="mx-auto grid max-w-container gap-4 lg:grid-cols-detail lg:items-start">
@@ -131,7 +134,7 @@
                             Обраний маршрут
                         </h2>
                         <div class="flex flex-col items-start gap-4 sm:flex-row sm:items-center">
-                            <img alt="Гора Піп Іван" class="h-18 w-24 shrink-0 rounded-lg object-cover" id="confirmation-image" src="assets/images/pip-ivan.jpg"/>
+                            <img width="800" height="600" alt="Гора Піп Іван" class="h-18 w-24 shrink-0 rounded-lg object-cover" id="confirmation-image" src="assets/images/pip-ivan.jpg"/>
                             <div>
                                 <h3 class="mb-1.5 font-heading text-lg font-semibold text-neutral-dark" id="confirmation-route">
                                     Похід на Піп Іван та Чорногірський хребет
@@ -225,7 +228,7 @@
                                     Статус оплати
                                 </p>
                                 <p class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-secondary bg-tint text-primary">
-                                    Оплата не здійснювалася
+                                    Оплату та доступність уточнюйте в організатора
                                 </p>
                             </div>
                             <div class="sm:text-right">
@@ -332,7 +335,7 @@
                     </h2>
                     <div class="grid gap-4 md:grid-cols-2">
                         <article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-shadow hover:shadow-soft sm:flex-row">
-                            <img alt="" class="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-36" decoding="async" loading="lazy" src="assets/images/pip-ivan-camp.png"/>
+                            <img width="344" height="194" alt="" class="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-36" decoding="async" loading="lazy" src="assets/images/pip-ivan-camp.png" srcset="assets/images/pip-ivan-camp.webp 1x"/>
                             <div class="flex flex-col justify-center gap-1 p-4">
                                 <p class="text-[0.6875rem] text-secondary">
                                     Спорядження · 5 хв читання
@@ -346,7 +349,7 @@
                             </div>
                         </article>
                         <article class="flex flex-col overflow-hidden rounded-lg border border-line bg-white transition-shadow hover:shadow-soft sm:flex-row">
-                            <img alt="" class="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-36" decoding="async" loading="lazy" src="assets/images/synevyr-camp.png"/>
+                            <img width="344" height="194" alt="" class="h-36 w-full shrink-0 object-cover sm:h-auto sm:w-36" decoding="async" loading="lazy" src="assets/images/synevyr-camp.png" srcset="assets/images/synevyr-camp.webp 1x"/>
                             <div class="flex flex-col justify-center gap-1 p-4">
                                 <p class="text-[0.6875rem] text-secondary">
                                     Еко-поради · 4 хв читання
@@ -370,7 +373,7 @@
             <div class="mx-auto max-w-container">
                 <div class="mb-8 grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-footer">
                     <a class="flex items-center gap-4 md:col-span-2 lg:col-span-1" href="index.html#hero" title="Еко-туризм та піші маршрути Карпатами">
-                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g.svg" data-theme-dark-src="assets/images/Logo_footer_dark.svg" src="assets/images/logo_g.svg"/>
+                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g-display.webp" data-theme-dark-src="assets/images/Logo_footer_dark-display.webp" src="assets/images/logo_g-display.webp" width="64" height="64"/>
                         <span class="max-w-40 text-sm">
                             Еко-туризм та піші маршрути Карпатами
                         </span>

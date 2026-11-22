@@ -1,4 +1,4 @@
-/* Зелені стежки Карпат · ЛР №11 — Планувальник бюджету походу.
+/* Зелені стежки Карпат · Планувальник бюджету походу.
    Vanilla JavaScript, ізоляція IIFE, fetch/async-await, defensive programming. */
 (() => {
   'use strict';
@@ -118,15 +118,16 @@
     const base = route.price * guests;
     const discount = guests >= data.rules.groupDiscount.fromGuests
       ? Math.round(base * data.rules.groupDiscount.percent / 100) : 0;
+    const durationSurcharge = Math.round(Math.max(0,days-route.standardDays)*route.price/route.standardDays*guests);
     const food = selection.food === true ? guests * days * data.rules.foodPerPersonPerDay : 0;
     const gear = selection.gear === true ? days * data.rules.gearPerDay : 0;
     const transfer = data.rules.transport[selection.transport].price;
-    const total = base - discount + food + gear + transfer;
+    const total = base + durationSurcharge - discount + food + gear + transfer;
     if (!Number.isSafeInteger(total) || total < 0 ||
-        ![base, discount, food, gear, transfer].every(Number.isSafeInteger)) {
+        ![base, durationSurcharge, discount, food, gear, transfer].every(Number.isSafeInteger)) {
       throw new RangeError('Неможливо безпечно обчислити вартість.');
     }
-    return {route, guests, days, base, discount, food, gear, transfer, total};
+    return {route, guests, days, base, durationSurcharge, discount, food, gear, transfer, total};
   }
 
   function initWidget(root) {
@@ -199,6 +200,7 @@
         el['selected-details'].textContent = `${summary.guests} учасн. · ${summary.days} дн. додаткових витрат`;
         el.lines.replaceChildren();
         addLine(`Тур: ${currency(summary.route.price)} × ${summary.guests}`, summary.base);
+        if(summary.durationSurcharge)addLine('Додаткові дні',summary.durationSurcharge);
         if (summary.discount) addLine('Групова знижка 5% на тур', summary.discount, true);
         addLine('Харчування', summary.food);
         addLine('Спорядження', summary.gear);
@@ -206,8 +208,8 @@
         el.total.textContent = currency(summary.total);
         el.note.textContent = summary.days !== summary.route.standardDays
           ? `Стандартний маршрут триває ${summary.route.standardDays} дн. Для іншої тривалості уточніть програму; сума орієнтовна.`
-          : 'Орієнтовний загальний бюджет. Це планування, а не реальне бронювання чи оплата.';
-        const params = new URLSearchParams({route: routeId, guests: String(summary.guests)});
+          : 'Орієнтовна вартість подорожі. Наявність місць та деталі узгоджуються з організатором.';
+        const params = new URLSearchParams({route: routeId, guests: String(summary.guests),days:String(summary.days)});
         el['booking-link'].href = `booking.html?${params.toString()}`;
         el['booking-link'].removeAttribute('aria-disabled');
       } catch (error) {

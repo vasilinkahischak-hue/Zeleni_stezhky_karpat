@@ -1,4 +1,4 @@
-/* Зелені стежки Карпат — ЛР №9. Очищена логіка; лише необхідні інтерактивні дії, без бібліотек. */
+/* Зелені стежки Карпат — . Очищена логіка; лише необхідні інтерактивні дії, без бібліотек. */
 (() => {
   'use strict';
   const routes = window.ZSK_ROUTES || {};
@@ -15,7 +15,7 @@
     const [year, month, day] = value.split('-').map(Number);
     return new Intl.DateTimeFormat('uk-UA', {day:'numeric',month:'long',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(year,month-1,day)));
   };
-  // ЛР №9: демонстраційні моделі спорядження та умовна ціна оренди за добу.
+  // Доступні моделі спорядження та вартість оренди за добу.
   const gearModels = {
     'tent': {
       'naturehike-cloud-up-2': {label:'Naturehike Cloud Up 2', price:150},
@@ -48,8 +48,10 @@
       return {kind,id,label:selected.label,price:selected.price,cost:selected.price*days};
     });
     const gear=gearItems.reduce((sum,item)=>sum+item.cost,0);
+    const extraDays=Math.max(0,days-r.days);
+    const durationSurcharge=Math.round(extraDays*r.price/r.days*guests);
     const transfer=transferCosts[selection.transfer] ?? 0;
-    return {r,guests,days,gear,gearItems,transfer,base:r.price*guests,total:r.price*guests+gear+transfer,extras};
+    return {r,guests,days,gear,gearItems,transfer,durationSurcharge,base:r.price*guests,total:r.price*guests+durationSurcharge+gear+transfer,extras};
   }
   // Каталог: пошук, чекбокси, сортування, перегляд карти.
   const filters=$('#filters-form');
@@ -151,8 +153,8 @@
       $('#summary-image').src=quote.r.image;
       $('#summary-route').textContent=quote.r.name;
       $('#summary-details').textContent=`${readableDate(selection.date)} · ${quote.days} дн. · ${quote.guests} учасн.`;
-      $('#quote-base-label').textContent=`Базова програма (${quote.guests} учасн.)`;
-      $('#quote-base-value').textContent=formatPrice(quote.base);
+      $('#quote-base-label').textContent=quote.durationSurcharge ? `Програма + ${quote.days-quote.r.days} дод. дн. (${quote.guests} учасн.)` : `Базова програма (${quote.guests} учасн.)`;
+      $('#quote-base-value').textContent=formatPrice(quote.base+quote.durationSurcharge);
       $('#quote-gear-value').textContent=`+${formatPrice(quote.gear)}`;
       const gearSummary=$('#quote-gear-summary');
       if (gearSummary) gearSummary.textContent=quote.gearItems.length ?
@@ -163,11 +165,12 @@
       $('#quote-footnote').textContent=`Орієнтовно за ${quote.guests} учасн.`;
       $('#quote-note').textContent=quote.days===quote.r.days ?
         'Вартість орієнтовна для стандартної програми; фактичну доступність і ціну підтверджує організатор.' :
-        `Обрано ${quote.days} дн., а стандартний тур триває ${quote.r.days} дн. Підсумок розраховано за базовим туром, зміну програми треба погодити.`;
+        `Обрано ${quote.days} дн. Стандартна програма: ${quote.r.days} дн. Доплата за кожен додатковий день = ${formatPrice(Math.round(quote.r.price/quote.r.days))} × учасники. Зміну програми потрібно погодити.`;
     };
     function updateDurationFromRoute() {
       const r=routes[getSelection().route];
-      const input=$(`#days-${r.days}`,booking);
+      const requestedDays=integer(params.get('days'),r.days,1,5);
+      const input=$(`#days-${params.has('days')?requestedDays:r.days}`,booking);
       if(input) input.checked=true;
       render();
     }
@@ -244,6 +247,37 @@
         else nextPath();
       }
     });
+    // Продoвжені походи потребують власного або орендованого намету.
+    const tentCheckbox=$('#extra-tent',booking);
+    const tentChoice=$('#tent-extension-section',booking);
+    const tentError=$('#tent-source-error',booking);
+    const tentRadios=$$('input[name="tent-source"]',tentChoice);
+    let syncingTent=false;
+    function syncTentChoice(){
+      const selection=getSelection();const route=routes[selection.route]||routes['pip-ivan'];
+      const extra=Number(selection.days)>route.days;
+      if(tentChoice)tentChoice.hidden=!extra;
+      tentRadios.forEach(el=>{el.disabled=!extra;el.required=extra;});
+      if(tentError && !tentError.hidden)tentError.hidden=true;
+      if(!extra){tentRadios.forEach(el=>el.checked=false);return true;}
+      const source=tentRadios.find(el=>el.checked)?.value;
+      if(source==='rental'&&tentCheckbox&&!tentCheckbox.checked){tentCheckbox.checked=true;syncGearPanels();}
+      if(source==='own'&&tentCheckbox?.checked){tentCheckbox.checked=false;syncGearPanels();}
+      return Boolean(source);
+    }
+    booking.addEventListener('change',e=>{
+      if(syncingTent)return;
+      if(e.target.matches('input[name="tent-source"]')){syncingTent=true;syncTentChoice();syncingTent=false;render();}
+      if(e.target.matches('input[name="extras"]')&&e.target.value==='tent'&&!tentChoice.hidden){
+        const rental=tentRadios.find(el=>el.value==='rental');
+        if(rental){
+          if(e.target.checked)rental.checked=true;
+          else rental.checked=false; // Зняття оренди НЕ означає підтвердження власного намету.
+        }
+        syncTentChoice();
+      }
+      if(e.target.matches('input[name="route"],input[name="days"]'))syncTentChoice();
+    });
     routeInputs.forEach(el=>el.addEventListener('change',updateDurationFromRoute));
     booking.addEventListener('change',e=>{
       if(e.target.matches('input[name="extras"]'))syncGearPanels();
@@ -252,6 +286,7 @@
     guests.addEventListener('input',render);date.addEventListener('input',render);
     updateDurationFromRoute();
     syncGearPanels();
+    syncTentChoice();
 
     // Client-side validation: RegExp + accessible inline errors (no external forms service).
     // Native validation remains available when JavaScript is disabled.
@@ -259,7 +294,7 @@
     const errorIds=['name','phone','email','date','guests'];
     const errorMessages={
       name:'Введіть прізвище та ім’я (два слова, без цифр).',
-      phone:'Введіть український номер: +380XXXXXXXXX або 0XXXXXXXXX.',
+      phone:'Перевірте номер телефону відповідно до вибраного коду країни.',
       email:'Введіть коректний email, наприклад name@example.com.',
       date:'Оберіть дату, яка не є минулою.',
       guests:'Вкажіть цілу кількість учасників від 1 до 10.'
@@ -271,8 +306,7 @@
         return value.length>=5 && value.length<=80 && /^[\p{L}][\p{L}'’\-]*(?:\s+[\p{L}][\p{L}'’\-]*)+$/u.test(value);
       }
       if(id==='phone') {
-        const normalized=value.replace(/[\s()\-]/g,'');
-        return /^(?:\+380|380|0)\d{9}$/.test(normalized);
+        return window.ZSKPhone ? window.ZSKPhone.valid(fields[id]) : /^(?:\+380|380|0)\d{9}$/.test(value.replace(/[\s()\-]/g,''));
       }
       if(id==='email')return value.length<=254 && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value) && fields[id].validity.valid;
       if(id==='date')return !!isoDate(value) && value>=today;
@@ -298,9 +332,11 @@
       field.addEventListener('change',()=>validateField(id));
     });
     const dialog=$('#booking-preview-dialog');
-    const goToDemoConfirmation=()=>{
+    const openTripSummary=()=>{
       const selection=getSelection();
       const qs=new URLSearchParams({route:selection.route,date:selection.date,guests:String(integer(selection.guests,2)),days:String(selection.days),transfer:selection.transfer});
+      const tentSource=tentRadios.find(el=>el.checked)?.value;
+      if(tentSource)qs.set('tent-source',tentSource);
       selection.extras.forEach(kind=>{
         qs.append('extras',kind);
         const modelId=selection.gearModels[kind];
@@ -310,19 +346,24 @@
       location.href=`booking_confirmed.html?${qs.toString()}`;
     };
     $('[data-dialog-cancel]',dialog)?.addEventListener('click',()=>dialog.close());
-    $('[data-dialog-confirm]',dialog)?.addEventListener('click',goToDemoConfirmation);
+    $('[data-dialog-confirm]',dialog)?.addEventListener('click',openTripSummary);
     booking.addEventListener('submit',e=>{
       e.preventDefault();
       let firstInvalid;
       for(const id of errorIds)if(!validateField(id) && !firstInvalid)firstInvalid=fields[id];
       if(firstInvalid) { firstInvalid.focus();firstInvalid.scrollIntoView({block:'center',behavior:'smooth'});return; }
+      if(!syncTentChoice()){
+        if(tentError)tentError.hidden=false;
+        tentChoice?.scrollIntoView({block:'center',behavior:'smooth'});
+        tentRadios[0]?.focus();tentRadios[0]?.reportValidity();return;
+      }
       const s=getSelection(),quote=calculate(s);
       $('#booking-dialog-summary').textContent=`${quote.r.name} · ${readableDate(s.date)} · ${quote.guests} учасн. · ${formatPrice(quote.total)}`;
       if(dialog && typeof dialog.showModal==='function')dialog.showModal();
-      else if(window.confirm('Перейти до демонстраційного підтвердження?'))goToDemoConfirmation();
+      else if(window.confirm('Переглянути підсумок маршруту?'))openTripSummary();
     });
   }
-  // Підсумок демонстрації: відображає фактичний вибір, без неправдивих заяв про оплату.
+  // Підсумок сформованого плану маршруту.
   if($('#confirmation-route')) {
     const qs=new URLSearchParams(location.search);
     const s={route:qs.get('route')||'pip-ivan',date:isoDate(qs.get('date'))||'',guests:qs.get('guests'),days:qs.get('days'),transfer:qs.get('transfer')||'own',extras:qs.getAll('extras'),gearModels:Object.fromEntries(['tent','sleeping-bag','poles'].map(kind=>[kind,qs.get(`gear-model-${kind}`)]))};
@@ -339,6 +380,8 @@
       extraList.replaceChildren();
       const items=quote.gearItems.map(item=>`${extrasName[item.kind]}: ${item.label} — ${formatPrice(item.cost)} (${quote.days} дн.)`);
       if(s.transfer && s.transfer!=='own')items.push(`${transferNames[s.transfer]} — ${formatPrice(quote.transfer)}`);
+      if(qs.get('tent-source')==='own'&&quote.days>quote.r.days)items.unshift('Власний намет для додаткових днів');
+      if(quote.durationSurcharge)items.unshift(`Додаткові дні: +${formatPrice(quote.durationSurcharge)}`);
       if(!items.length)items.push('Без додаткових послуг');
       for(const label of items){const li=document.createElement('li');li.textContent=label;extraList.appendChild(li);}
     }
@@ -349,7 +392,7 @@
       const endDate=new Date(`${s.date}T12:00:00Z`);endDate.setUTCDate(endDate.getUTCDate()+quote.days);
       const end=`${endDate.getUTCFullYear()}${String(endDate.getUTCMonth()+1).padStart(2,'0')}${String(endDate.getUTCDate()).padStart(2,'0')}`;
       const escapeText=v=>v.replaceAll('\\','\\\\').replaceAll('\n','\\n').replaceAll(',','\\,').replaceAll(';','\\;');
-      const event=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Zeleni Stezhky//Demo//UK','BEGIN:VEVENT',`UID:demo-${start}-${s.route}@carpathiantrails.invalid`,`DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')}`,`DTSTART;VALUE=DATE:${start}`,`DTEND;VALUE=DATE:${end}`,`SUMMARY:${escapeText(quote.r.name)} (план, не бронювання)`,'DESCRIPTION:Навчальна демонстрація. Уточніть маршрут у організатора.','END:VEVENT','END:VCALENDAR'].join('\r\n');
+      const event=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Zeleni Stezhky//Trip Planner//UK','BEGIN:VEVENT',`UID:plan-${start}-${s.route}@carpathiantrails.invalid`,`DTSTAMP:${new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'')}`,`DTSTART;VALUE=DATE:${start}`,`DTEND;VALUE=DATE:${end}`,`SUMMARY:${escapeText(quote.r.name)} — план подорожі`,'DESCRIPTION:Маршрут і дату потрібно погодити з організатором.','END:VEVENT','END:VCALENDAR'].join('\r\n');
       const blob=new Blob([event],{type:'text/calendar;charset=utf-8'}),url=URL.createObjectURL(blob);
       const a=document.createElement('a');a.href=url;a.download='carpathian-hike-plan.ics';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
     });

@@ -1,0 +1,8 @@
+/* Додаткова доступність без зміни дизайн-системи */
+:where(a, button, input, select, textarea):focus-visible {outline: 3px solid #A94F24; outline-offset: 3px;}
+.zsk-country-select {min-height:44px; max-width:130px; padding:8px; border:1px solid #D4DAD4; border-radius:8px; background:transparent; color:inherit; font:inherit;}
+.zsk-phone-row {display:flex; align-items:center; gap:8px;}
+.zsk-phone-row input {min-width:0; flex:1;}
+.zsk-tent-choice {margin-top:12px; padding:12px; border:1px solid #D4DAD4; border-radius:12px;}
+.zsk-tent-choice label {display:flex; align-items:center; gap:10px; margin:6px 0;}
+@media (prefers-reduced-motion: reduce) {html {scroll-behavior:auto!important;} *, *::before, *::after {animation-duration:.01ms!important; transition-duration:.01ms!important;}}

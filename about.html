@@ -7,11 +7,11 @@
             Про нас — Зелені стежки Карпат
         </title>
         <meta content="Філософія тихих та свідомих мандрівок Карпатами: прозора ціна, Eco-Impact Score та локальні гіди." name="description"/>
-        <link href="assets/images/logo_w.svg" rel="icon" type="image/svg+xml"/>
+        <link href="assets/images/favicon.png" rel="icon" type="image/png"/>
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
         <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-        <script>try{if(localStorage.getItem('zsk-theme')==='dark'){document.documentElement.dataset.theme='dark'}}catch(e){}</script>
+        <script>!function(){let t;try{t=localStorage.getItem('zsk-theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}();</script>
         <link href="css/tailwind-built.css" rel="stylesheet"/>
         <link href="css/style.css" rel="stylesheet"/>
         <link href="css/theme.css" rel="stylesheet"/>
@@ -21,7 +21,9 @@
         </script>
         <meta content="#1E3F20" name="theme-color"/>
         <script defer src="js/theme.js"></script>
-    </head>
+        <link rel="stylesheet" href="css/release.css"/>
+    <script defer src="js/phone.js"></script>
+</head>
     <body class="bg-background font-main text-base text-neutral-dark antialiased">
         <a class="absolute -top-12 left-0 z-[200] bg-accent-hover px-4 py-2 text-white transition-[top] focus:top-0" href="#main-content" title="Перейти до основного вмісту">
             Перейти до основного вмісту
@@ -35,7 +37,7 @@
                         <svg class="theme-switch-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
                     </button>
                     <a class="flex items-center gap-2.5 text-base font-semibold text-primary transition-opacity hover:opacity-80 md:justify-self-start md:text-lg" href="index.html#hero" title="Зелені стежки Карпат">
-                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w.svg" data-theme-dark-src="assets/images/Logo_header_dark.svg" src="assets/images/logo_w.svg"/>
+                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w-display.webp" data-theme-dark-src="assets/images/Logo_header_dark-display.webp" src="assets/images/logo_w-display.webp" width="64" height="64"/>
                     <span class="leading-tight">
                         Зелені стежки Карпат
                     </span>
@@ -134,7 +136,7 @@
                     <p class="mb-8 mt-2 text-center text-secondary">
                         Створюємо відпочинок без джипінгу, масового шуму та прихованих комісій
                     </p>
-                    <img alt="Карпатські полонини в ранковій мряці" class="aspect-[16/6] w-full rounded-2xl object-cover" src="assets/images/pro-nas-bg.png"/>
+                    <img fetchpriority="high" decoding="async" width="1248" height="440" alt="Карпатські полонини в ранковій мряці" class="aspect-[16/6] w-full rounded-2xl object-cover" src="assets/images/pro-nas-bg.png" srcset="assets/images/pro-nas-bg.webp 1x"/>
                 </div>
             </section>
             <!-- END SECTION: Філософія тихих та свідомих мандрівок Карпатами -->
@@ -155,11 +157,11 @@
                             На головній сторінці ви одразу бачите калькулятор, який дозволяє оцінити ціну туру без жодних звернень до менеджера. Ви можете налаштувати всі деталі поїздки одним пальцем зі свого смартфона. Сервіс показує детальну розшифровку бюджету, щоб ви чітко розуміли різницю між базовою ціною та додатковими послугами.
                         </p>
                         <p class="text-sm">
-                            Обирайте маршрути за складністю та тривалістю; наявність гідів і спорядження на конкретні дати потрібно уточнювати в організатора. Для порівняння екологічності маршрутів у прототипі використано умовний показник Eco-Impact Score.
+                            Обирайте маршрути за складністю та тривалістю; наявність гідів і спорядження на конкретні дати потрібно уточнювати в організатора. Для порівняння екологічності маршрутів використано умовний показник Eco-Impact Score.
                         </p>
                     </div>
                     <figure class="relative max-w-figure rounded-2xl border border-line bg-white p-3 shadow-soft lg:max-w-none">
-                        <img alt="Мандрівниця з рюкзаком і треккінговими палицями на гірській стежці" class="aspect-[3/4] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/pro-nas-img.png"/>
+                        <img width="428" height="585" alt="Мандрівниця з рюкзаком і треккінговими палицями на гірській стежці" class="aspect-[3/4] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/pro-nas-img.png" srcset="assets/images/pro-nas-img.webp 1x"/>
                         <figcaption class="inline-flex items-center gap-1 self-start rounded-full border px-3 py-0.5 text-2xs font-semibold border-line bg-white text-neutral-dark absolute bottom-6 left-6">
                             Eco-Impact Certified
                         </figcaption>
@@ -204,7 +206,7 @@
                     </li>
                 </ul>
                 <p class="mt-4 text-xs text-secondary">
-                    Числові показники наведено з попереднього UI-прототипу й потрібно підтвердити реальними даними перед публічним використанням.
+                    Числові показники є орієнтовними та потребують підтвердження реальними даними.
                 </p>
             </section>
             <!-- END SECTION: Наші показники -->
@@ -270,7 +272,7 @@
             <div class="mx-auto max-w-container">
                 <div class="mb-8 grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-footer">
                     <a class="flex items-center gap-4 md:col-span-2 lg:col-span-1" href="index.html#hero" title="Еко-туризм та піші маршрути Карпатами">
-                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g.svg" data-theme-dark-src="assets/images/Logo_footer_dark.svg" src="assets/images/logo_g.svg"/>
+                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g-display.webp" data-theme-dark-src="assets/images/Logo_footer_dark-display.webp" src="assets/images/logo_g-display.webp" width="64" height="64"/>
                         <span class="max-w-40 text-sm">
                             Еко-туризм та піші маршрути Карпатами
                         </span>

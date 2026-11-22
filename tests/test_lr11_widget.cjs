@@ -12,6 +12,9 @@ test('6 existing routes from catalogue',()=>{assert.equal(config.routes.length,6
 test('Happy Path base only',()=>assert.equal(calculate(config,original).total,4800));
 test('Happy Path food gear transport',()=>assert.equal(calculate(config,{...original,food:true,gear:true,transport:'ivano'}).total,6870));
 test('Group discount 6 guests',()=>{const v=calculate(config,{...original,guests:6,food:true,gear:true,transport:'lviv'});assert.equal(v.discount,720);assert.equal(v.total,18690)});
+test('Extra days charge at average daily route rate',()=>{const q=calculate(config,{...original,days:5});assert.equal(q.durationSurcharge,3200);assert.equal(q.total,8000)});
+test('Standard duration has no extra charge',()=>assert.equal(calculate(config,original).durationSurcharge,0));
+test('Shorter duration does not add surcharge',()=>assert.equal(calculate(config,{...original,days:2}).durationSurcharge,0));
 test('Blank input rejected',()=>assert.match(readCount('',config.rules.guests).error,/Введіть/));
 test('0 rejected',()=>assert.ok(readCount('0',config.rules.guests).error));
 test('negative rejected',()=>assert.ok(readCount('-5',config.rules.guests).error));

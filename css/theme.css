@@ -1,4 +1,4 @@
-/* Темно-зелена тема — ЛР №10. Мінімалістичний перемикач у лівому куті шапки. */
+/* Темно-зелена тема — . Мінімалістичний перемикач у лівому куті шапки. */
 .header-brand-group {
   display: flex;
   align-items: center;
@@ -114,7 +114,7 @@ html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view]
   outline-offset: -3px;
 }
 
-/* ЛР №11: мобільний хедер — компактний логотип, кнопка та меню без накладання. */
+/* мобільний хедер — компактний логотип, кнопка та меню без накладання. */
 .header-mobile-booking { display: none; }
 @media (max-width: 767px) {
   header .header-brand-group { gap: 6px; flex: 0 0 auto; }
@@ -150,7 +150,7 @@ html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view]
   .header-mobile-booking { font-size: 11px; padding: 8px 9px; }
 }
 
-/* ЛР №11 — виправлення дублювання кнопки бронювання */
+/* виправлення дублювання кнопки бронювання */
 
 @media (max-width: 767px) {
     /* Приховуємо десктопну кнопку на телефоні */
@@ -164,7 +164,7 @@ html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view]
     }
 }
 
-/* ЛР №11 — розташування мобільного меню */
+/* розташування мобільного меню */
 
 @media (max-width: 767px) {
 
@@ -201,7 +201,7 @@ html[data-theme="dark"] [aria-label="Вигляд каталогу"] [data-view]
     }
 }
 
-/* ЛР №11 — оформлення відкритого бургер-меню */
+/* оформлення відкритого бургер-меню */
 
 @media (max-width: 767px) {
 

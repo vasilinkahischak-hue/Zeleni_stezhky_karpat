@@ -7,11 +7,11 @@
             Маршрути — Зелені стежки Карпат
         </title>
         <meta content="Каталог еко-маршрутів Карпатами: фільтри за складністю, тривалістю та Eco-Impact оцінкою." name="description"/>
-        <link href="assets/images/logo_w.svg" rel="icon" type="image/svg+xml"/>
+        <link href="assets/images/favicon.png" rel="icon" type="image/png"/>
         <link href="https://fonts.googleapis.com" rel="preconnect"/>
         <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
         <link href="https://fonts.googleapis.com/css2?family=Newsreader:wght@600&amp;family=Plus+Jakarta+Sans:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
-        <script>try{if(localStorage.getItem('zsk-theme')==='dark'){document.documentElement.dataset.theme='dark'}}catch(e){}</script>
+        <script>!function(){let t;try{t=localStorage.getItem('zsk-theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t}();</script>
         <link href="css/tailwind-built.css" rel="stylesheet"/>
         <link href="css/style.css" rel="stylesheet"/>
         <link href="css/theme.css" rel="stylesheet"/>
@@ -21,7 +21,9 @@
         </script>
         <meta content="#1E3F20" name="theme-color"/>
         <script defer src="js/theme.js"></script>
-    </head>
+        <link rel="stylesheet" href="css/release.css"/>
+    <script defer src="js/phone.js"></script>
+</head>
     <body class="bg-background font-main text-base text-neutral-dark antialiased">
         <a class="absolute -top-12 left-0 z-[200] bg-accent-hover px-4 py-2 text-white transition-[top] focus:top-0" href="#main-content" title="Перейти до основного вмісту">
             Перейти до основного вмісту
@@ -35,7 +37,7 @@
                         <svg class="theme-switch-icon theme-icon-sun" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.32 11.32 1.41 1.41M2 12h2m16 0h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
                     </button>
                     <a class="flex items-center gap-2.5 text-base font-semibold text-primary transition-opacity hover:opacity-80 md:justify-self-start md:text-lg" href="index.html#hero" title="Зелені стежки Карпат">
-                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w.svg" data-theme-dark-src="assets/images/Logo_header_dark.svg" src="assets/images/logo_w.svg"/>
+                    <img alt="" class="h-12 w-auto shrink-0 md:h-16" data-theme-light-src="assets/images/logo_w-display.webp" data-theme-dark-src="assets/images/Logo_header_dark-display.webp" src="assets/images/logo_w-display.webp" width="64" height="64"/>
                     <span class="leading-tight">
                         Зелені стежки Карпат
                     </span>
@@ -310,7 +312,7 @@
                             </div>
                             <div aria-live="polite" class="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3" id="route-cards">
                                 <article class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0" data-days="3" data-eco="9.4" data-level="Складний" data-price="2400" data-route="pip-ivan" data-search="похід на піп іван та чорногірський хребет 3 дні • 32 км • складний eco-impact 9.4 від 2 400 грн детальніше про маршрут похід на піп іван та чорногірський хребет обрати маршрут похід на піп іван та чорногірський хребет">
-                                    <img alt="Вид на обсерваторію гори Піп Іван" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/pip-ivan.jpg"/>
+                                    <img width="800" height="600" alt="Вид на обсерваторію гори Піп Іван" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/pip-ivan.jpg" srcset="assets/images/pip-ivan.webp 1x"/>
                                     <div class="flex grow flex-col gap-2">
                                         <h3 class="font-heading text-base font-semibold leading-snug text-neutral-dark">
                                             Похід на Піп Іван та Чорногірський хребет
@@ -341,7 +343,7 @@
                                     </div>
                                 </article>
                                 <article class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0" data-days="1" data-eco="9.1" data-level="Середній" data-price="1800" data-route="nesamovute" data-search="озеро несамовите 1 день • 14 км • середній eco-impact 9.1 від 1 800 грн детальніше про маршрут озеро несамовите обрати маршрут озеро несамовите">
-                                    <img alt="Гірське озеро Несамовите серед полонин" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/nesamovute.png"/>
+                                    <img width="924" height="400" alt="Гірське озеро Несамовите серед полонин" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/nesamovute.png" srcset="assets/images/nesamovute.webp 1x"/>
                                     <div class="flex grow flex-col gap-2">
                                         <h3 class="font-heading text-base font-semibold leading-snug text-neutral-dark">
                                             Озеро Несамовите
@@ -403,7 +405,7 @@
                                     </div>
                                 </article>
                                 <article class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0" data-days="1" data-eco="9.0" data-level="Легкий" data-price="1600" data-route="synevyr" data-search="лісовими стежками до синевиру 1 день • 10 км • легкий eco-impact 9.0 від 1 600 грн детальніше про маршрут лісовими стежками до синевиру обрати маршрут лісовими стежками до синевиру">
-                                    <img alt="Озеро Синевир серед лісу з висоти пташиного польоту" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/synevyr.jpg"/>
+                                    <img width="1163" height="610" alt="Озеро Синевир серед лісу з висоти пташиного польоту" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/synevyr.jpg" srcset="assets/images/synevyr.webp 1x"/>
                                     <div class="flex grow flex-col gap-2">
                                         <h3 class="font-heading text-base font-semibold leading-snug text-neutral-dark">
                                             Лісовими стежками до Синевиру
@@ -434,7 +436,7 @@
                                     </div>
                                 </article>
                                 <article class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0" data-days="2" data-eco="9.4" data-level="Середній" data-price="2100" data-route="bordzava" data-search="полонини боржави з наметами 2 дні • 24 км • середній eco-impact 9.4 від 2 100 грн детальніше про маршрут полонини боржави з наметами обрати маршрут полонини боржави з наметами">
-                                    <img alt="Полонини Боржави та намети на хребті" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/bordzava.png"/>
+                                    <img width="300" height="200" alt="Полонини Боржави та намети на хребті" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/bordzava.png" srcset="assets/images/bordzava.webp 1x"/>
                                     <div class="flex grow flex-col gap-2">
                                         <h3 class="font-heading text-base font-semibold leading-snug text-neutral-dark">
                                             Полонини Боржави з наметами
@@ -465,7 +467,7 @@
                                     </div>
                                 </article>
                                 <article class="flex flex-col gap-2 rounded-2xl border border-line bg-white p-3 shadow-soft transition duration-200 hover:-translate-y-1 hover:shadow-card-hover motion-reduce:transition-none motion-reduce:hover:translate-y-0" data-days="1" data-eco="9.3" data-level="Складний" data-price="1900" data-route="hoverla" data-search="сходження на говерлу 1 день • 12 км • складний eco-impact 9.3 від 1 900 грн детальніше про маршрут сходження на говерлу обрати маршрут сходження на говерлу">
-                                    <img alt="Стежка до вершини Говерли" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/hoverla.jpg"/>
+                                    <img width="900" height="506" alt="Стежка до вершини Говерли" class="aspect-[16/10] w-full rounded-lg object-cover" decoding="async" loading="lazy" src="assets/images/hoverla.jpg" srcset="assets/images/hoverla.webp 1x"/>
                                     <div class="flex grow flex-col gap-2">
                                         <h3 class="font-heading text-base font-semibold leading-snug text-neutral-dark">
                                             Сходження на Говерлу
@@ -537,7 +539,7 @@
             <div class="mx-auto max-w-container">
                 <div class="mb-8 grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:grid-cols-footer">
                     <a class="flex items-center gap-4 md:col-span-2 lg:col-span-1" href="index.html#hero" title="Еко-туризм та піші маршрути Карпатами">
-                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g.svg" data-theme-dark-src="assets/images/Logo_footer_dark.svg" src="assets/images/logo_g.svg"/>
+                        <img alt="Зелені стежки Карпат" class="h-28 w-auto shrink-0 md:h-36" data-theme-light-src="assets/images/logo_g-display.webp" data-theme-dark-src="assets/images/Logo_footer_dark-display.webp" src="assets/images/logo_g-display.webp" width="64" height="64"/>
                         <span class="max-w-40 text-sm">
                             Еко-туризм та піші маршрути Карпатами
                         </span>

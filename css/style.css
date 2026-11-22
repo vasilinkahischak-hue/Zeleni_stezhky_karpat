@@ -1,5 +1,5 @@
 /* ==========================================================================
-   ЗЕЛЕНІ СТЕЖКИ КАРПАТ — css/style.css (аудит ЛР №9)
+   ЗЕЛЕНІ СТЕЖКИ КАРПАТ — css/style.css (аудит )
    Розмітка і більшість стилів тепер у Tailwind-класах. Тут лишилося лише те,
    що незручно або недоцільно виражати утилітами (Етап 14):
    1. Токени кольорів для власного CSS    4. Шеврон у <details>
@@ -256,7 +256,7 @@ img {
         aspect-ratio: 16 / 7;
     }
 }
-/* ===== 6. Друк демонстраційного розрахунку ===== */
+/* ===== 6. Друк розрахунку подорожі ===== */
 @media print {
   header, footer, [data-action="print"], [data-action="calendar"] {
       display: none !important;
@@ -270,7 +270,7 @@ img {
   }
 }
 
-/* ===== ЛР №9: стійкі адаптивні iframe для медіа та карти ===== */
+/* ===== стійкі адаптивні iframe для медіа та карти ===== */
 .media-frame {
     display: block;
     box-sizing: border-box;
@@ -291,7 +291,7 @@ img {
         height: 520px;
     }
 }
-/* ===== ЛР №9: розкривний каталог спорядження ===== */
+/* ===== розкривний каталог спорядження ===== */
 .gear-model-panel[hidden],
 .field-error[hidden] {
     display: none;
@@ -329,7 +329,7 @@ img {
 
 /* Самодостатня стилізація Hero незалежно від Tailwind CDN. */
 .bg-hero {
-  background-image: linear-gradient(90deg, rgba(255,255,255,.45) 0%,rgba(255,255,255,0) 65%), url('../assets/images/hero-bg.jpg');
+  background-image: linear-gradient(90deg, rgba(255,255,255,.45) 0%,rgba(255,255,255,0) 65%), url('../assets/images/hero-bg-desktop-1680.webp');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -385,4 +385,16 @@ img {
         width: 230px;
         height: 245px;
     }
+}
+
+/* LR12 Performance V4: mobile-specific portrait crop; hero layout, overlay and typography are unchanged. */
+@media (max-width: 480px) {
+  .bg-hero {
+    background-image: linear-gradient(90deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 65%), url('../assets/images/hero-bg-mobile-480.webp');
+  }
+}
+@media (min-width: 481px) and (max-width: 767px) {
+  .bg-hero {
+    background-image: linear-gradient(90deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 65%), url('../assets/images/hero-bg-mobile-768.webp');
+  }
 }

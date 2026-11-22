@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Disallow: /booking_confirmed.html

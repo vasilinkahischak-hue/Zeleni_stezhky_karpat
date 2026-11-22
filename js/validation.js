@@ -1,6 +1,5 @@
-/* ЛР №9 — адаптивна форма: HTML5 + Vanilla JavaScript + RegEx.
-   Демонстрація: жоден контактний запис не надсилається і не зберігається.
-   Регулярні вирази задають конкретні навчальні правила, а не гарантують існування email/телефону. */
+/* Адаптивна перевірка форми: HTML5, Vanilla JS, регулярні вирази.
+   Контакти не відправляються стороннім сервісам без налаштованого API. */
 (() => {
   'use strict';
   const form = document.getElementById('feedbackForm');
@@ -32,12 +31,11 @@
     return '';
   }
   function validatePhone() {
-    const value = fields.phone.value;
-    if (!value.trim()) return 'Вкажіть номер телефону.';
-    if (REGEX_PHONE.test(value)) return '';
-    if (/^0\d{9}$/.test(value)) return 'Використайте міжнародний формат: +38' + value + '.';
-    if (/\s/.test(value)) return 'Введіть номер без пробілів: +380XXXXXXXXX.';
-    return 'Телефон має бути у форматі +380XXXXXXXXX (+380 і 9 цифр).';
+    const input=fields.phone;
+    if(!input.value.trim())return 'Вкажіть номер телефону.';
+    if(window.ZSKPhone && window.ZSKPhone.valid(input))return '';
+    if(!window.ZSKPhone && REGEX_PHONE.test(input.value))return '';
+    return 'Перевірте кількість цифр і код країни.';
   }
   function validateMessage() {
     const value = fields.message.value.trim();
@@ -107,8 +105,7 @@
     });
   }
 
-  // Submit: навіть за вимкненого браузерного HTML5-валідатора JavaScript
-  // блокує некоректні дані. Реального мережевого запиту не виконується.
+  // Submit: JavaScript-валидація без зовнішнього мережевого запиту.
   form.addEventListener('submit', event => {
     event.preventDefault();
     const invalid = ids.filter(id => { touched.add(id); return !checkField(id); });
@@ -123,7 +120,7 @@
       closeButton?.focus();
     } else {
       // Fallback для дуже старих браузерів: інформуємо без удаваного надсилання.
-      status.textContent = 'Усі поля пройшли перевірку. Демонстрація: дані не надсилаються.';
+      status.textContent = 'Усі поля пройшли перевірку. Для звернення до команди скористайтеся контактами сайту.';
     }
     form.reset();
     touched.clear();
