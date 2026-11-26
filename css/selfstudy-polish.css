@@ -1,0 +1,64 @@
+/* Самостійна робота: точкові мікровзаємодії сторінки «Про нас».
+   Не змінює сітки, шрифти, базову палітру й текст сайту. */
+.ss-fact,
+.ss-principle,
+.ss-guide-card {
+  transition: transform .32s cubic-bezier(.2,.8,.2,1),
+              box-shadow .32s ease, border-color .32s ease,
+              background-color .32s ease;
+  will-change: auto;
+}
+.ss-fact:hover,
+.ss-principle:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-accent, #C86432);
+  box-shadow: 0 12px 25px rgba(17, 60, 37, .16);
+}
+.ss-principle {
+  border: 1px solid transparent;
+}
+.ss-principle:hover {
+  background-color: #f9fcf6;
+}
+.ss-principle img {
+  transition: transform .35s ease;
+}
+.ss-principle:hover img {
+  transform: scale(1.09) rotate(-4deg);
+}
+/* Портрет: делікатне підняття і кінематографічне збільшення при наведенні. */
+.ss-guide-card {
+  overflow: hidden;
+  animation: ss-guide-reveal .8s cubic-bezier(.2,.8,.2,1) backwards;
+}
+.ss-guide-card:hover {
+  transform: translateY(-7px) rotate(-.6deg);
+  box-shadow: 0 18px 38px rgba(16, 41, 31, .23);
+  border-color: #9db7a1;
+}
+.ss-guide-card > img {
+  transition: transform .6s cubic-bezier(.2,.8,.2,1);
+}
+.ss-guide-card:hover > img {
+  transform: scale(1.035);
+}
+.ss-guide-card figcaption {
+  transition: transform .35s ease;
+}
+.ss-guide-card:hover figcaption {
+  transform: translateY(-3px);
+}
+@keyframes ss-guide-reveal {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+html[data-theme="dark"] .ss-principle:hover,
+html[data-theme="dark"] .ss-fact:hover { background-color: #214333; }
+@media (prefers-reduced-motion: reduce) {
+  .ss-fact, .ss-principle, .ss-guide-card,
+  .ss-principle img, .ss-guide-card > img, .ss-guide-card figcaption {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
